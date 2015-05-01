@@ -60,7 +60,9 @@
 	// Since this method should return YES in at least 1 orientation, 
 	// we return YES only in the Portrait orientation
 	//
+    NSLog(@"RootViewController: shouldAutorotateToInterfaceOrientation: kGameAutorotationNone");
 	return ( interfaceOrientation == UIInterfaceOrientationPortrait );
+//    return ( interfaceOrientation == UIInterfaceOrientationLandscape );
 	
 #elif GAME_AUTOROTATION==kGameAutorotationCCDirector
 	//
@@ -70,7 +72,7 @@
 	//
 	//if( interfaceOrientation == UIInterfaceOrientationLandscapeLeft ) {
     
-    
+    NSLog(@"RootViewController: shouldAutorotateToInterfaceOrientation: kGameAutorotationCCDirector");
 		[[CCDirector sharedDirector] setDeviceOrientation: kCCDeviceOrientationLandscapeRight];
     
 	//} else if( interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
@@ -97,7 +99,7 @@
 	// Sample: Autorotate only in landscpe mode
 	//
 	// return YES for the supported orientations
-	
+    NSLog(@"RootViewController: shouldAutorotateToInterfaceOrientation: kGameAutorotationUIViewController");
 	return ( UIInterfaceOrientationIsLandscape( interfaceOrientation ) );
 	
 #else
@@ -139,6 +141,9 @@
 		rect.size.height *= contentScaleFactor;
 	}
 	glView.frame = rect;
+    
+    NSLog(@"RootViewController: willRotateToInterfaceOrientation: frame: %@", NSStringFromCGRect(rect));
+    
 }
 #endif // GAME_AUTOROTATION == kGameAutorotationUIViewController
 

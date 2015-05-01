@@ -54,7 +54,11 @@
 	
 	// Init the View Controller
 	viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
-	viewController.wantsFullScreenLayout = YES;
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)
+    {
+        viewController.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    //viewController.wantsFullScreenLayout = YES;
 	
 	//
 	// Create the EAGLView manually
@@ -67,6 +71,9 @@
 								   depthFormat:0						// GL_DEPTH_COMPONENT16_OES
 						];
 	
+    NSLog(@"AppDelegate: Window: %@", NSStringFromCGRect(window.bounds));
+    
+    
 	// attach the openglView to the director
 	[director setOpenGLView:glView];
 	
@@ -84,8 +91,11 @@
 	// Edit the RootViewController.m file to edit the supported orientations.
 	//
 #if GAME_AUTOROTATION == kGameAutorotationUIViewController
+    NSLog(@"AppDelegate: applicationDidFinishLaunching: kGameAutorotationUIViewController");
 	[director setDeviceOrientation:kCCDeviceOrientationPortrait];
+    //[director setDeviceOrientation:kCCDeviceOrientationLandscapeLeft];
 #else
+    NSLog(@"AppDelegate: applicationDidFinishLaunching: rotation other");
 	[director setDeviceOrientation:kCCDeviceOrientationLandscapeLeft];
 #endif
 	
@@ -100,6 +110,9 @@
 	[window addSubview: viewController.view];
 	
 	[window makeKeyAndVisible];
+    
+    // Lootsie fix
+    [window setRootViewController:viewController];
 	
 	// Default texture format for PNG/BMP/TIFF/JPEG/GIF images
 	// It can be RGBA8888, RGBA4444, RGB5_A1, RGB565
