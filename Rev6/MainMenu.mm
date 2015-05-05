@@ -16,6 +16,8 @@
 #import "BackButtonLayer.h"
 #import "GameSettings.h"
 
+#import "Lootsie.h"
+
 @implementation MainMenu
 
 @synthesize bg;
@@ -97,12 +99,21 @@ static MainMenu * instance = nil;
 		[self makeButtonWithString:@"How-to-play"
 						atPosition:ccp(70,-75) 
 					withSelector:@selector(howToPlay:)];
-                    
+        
+        [self makeButtonWithString:@"Lootsie-Rewards"
+                        atPosition:ccp(0,-35)
+                      withSelector:@selector(showLootsie:)];
         
 	}
 	return self;
 }
 
+-(void)showLootsie: (id)sender {
+    
+    NSLog(@"MainMenu: showLootsie");
+    [[Lootsie sharedInstance] showRewardsPage];
+    
+}
 
 -(void)campaign: (id)sender {
 	MainMenu* main = [MainMenu instance];

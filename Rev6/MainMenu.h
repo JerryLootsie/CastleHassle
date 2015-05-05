@@ -29,6 +29,7 @@
 		CCSprite* bg;
 }
 
+-(void)showLootsie: (id)sender;
 -(void)singlePlayer: (id)sender;
 -(void)settings: (id)sender;
 -(void)howToPlay: (id)sender;	

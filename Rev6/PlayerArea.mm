@@ -15,6 +15,8 @@
 #import "Projectile.h"
 #import "GameSettings.h"
 
+#import "Lootsie.h"
+
 @implementation PlayerArea
 
 @synthesize left, gold, overallHealth, ai, hasWeapon, timeTillLoss, destroyed, pieces, city;
@@ -115,7 +117,11 @@
         if(piece.hasBeenPlaced)
             money += (piece.currentSprite.position.y / PTM_RATIO) * piece.hp * MONEY_FACTOR;
     }
-        
+    
+    NSLog(@"PlayerArea: giveMoney: %d", money );
+    
+    //[[Lootsie sharedInstance] achievementReachedWithId:@"castlehit"];
+    
     [self addMoney:money];
     
     return money;

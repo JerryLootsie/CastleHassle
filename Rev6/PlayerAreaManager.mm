@@ -68,6 +68,8 @@
 -(void) loadAI {
 	int numAI = [GameSettings instance].numPlayers-1;
 	
+    NSLog(@"PlayerAreaManager: loadAi: numAI: %d", numAI);
+    
 	for(uint i=0; i<MAX_PLAYERS; i++) {
         BOOL indexIsPlayer = i == [GameSettings instance].playerID;
         
@@ -214,10 +216,18 @@
 
 - (void) dealloc {
     [super dealloc];
-        
-    [extremeLeft release];
-    [extremeRight release];
-    [playerAreas release];
+    
+    // Lootsie fix
+    // Lootsie fix
+    if(sizeof(int*) == 4) {
+        //system is 32-bit
+        [extremeLeft release];
+        [extremeRight release];
+        [playerAreas release];
+    } else if(sizeof(int*) == 8) {
+        //system is 64-bit
+    }
+
     
 }
 

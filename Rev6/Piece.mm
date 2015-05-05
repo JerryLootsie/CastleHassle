@@ -17,6 +17,8 @@
 #import "Weapon.h"
 #import "HUD.h"
 
+#import "Lootsie.h"
+
 @implementation Piece
 
 @synthesize body, hp, currentSprite, world, acceptsTouches, acceptsDamage, shouldDestroy, snappedTo, hasBeenPlaced;
@@ -230,6 +232,8 @@
 	
 	//************************** Sound section ends here *********************
 	
+    //[[Lootsie sharedInstance] achievementReachedWithId:@"castlehit"];
+    
 	
 	[self updateView];
 }

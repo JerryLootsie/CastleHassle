@@ -22,6 +22,8 @@
 
 #import "MapScreen.h"
 
+#import "Lootsie.h"
+
 //Pixel to metres ratio. Box2D uses metres as the unit for measurement.
 //This ratio defines how many pixels correspond to 1 Box2D "metre"
 //Box2D is optimized for objects of 1x1 metre therefore it makes sense
@@ -313,6 +315,12 @@ static Battlefield * instance = nil;
 		ps.position = loc;
 		ps.life = 0.08f;
 		[[Battlefield instance] addChild:ps z:ANIMATION_Z_INDEX];
+        
+        if (piece.owner.ai != nil) {
+            // player hit the ai
+            [[Lootsie sharedInstance] achievementReachedWithId:@"castlehit"];
+            NSLog(@"Battlefield: cleanupTick");
+        }
 		
 	}
 	
@@ -349,6 +357,8 @@ static Battlefield * instance = nil;
 		[self removeChild:weapon.backSwingSprite cleanup:YES];
 	}
 	
+
+    
 	if(![piece.owner hasWeapon] && piece.owner.ai != nil) { [piece.owner destroyPlayer]; }
 	
 	world->DestroyBody(b);

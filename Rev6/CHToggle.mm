@@ -78,8 +78,14 @@
 -(void) dealloc {
 	[super dealloc];
 	
-	[items release];
-    [image release];
+    // Lootsie fix
+    if(sizeof(int*) == 4) {
+        //system is 32-bit
+        [items release];
+        [image release];
+    } else if(sizeof(int*) == 8) {
+        //system is 64-bit
+    }
 }
 
 @end

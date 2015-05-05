@@ -12,6 +12,7 @@
 #import "GameConfig.h"
 #import "RootViewController.h"
 #import "MainMenu.h"
+#import "Lootsie.h"
 
 @implementation AppDelegate
 
@@ -113,6 +114,24 @@
     
     // Lootsie fix
     [window setRootViewController:viewController];
+    
+    // Override point for customization after application launch.
+    ServiceCallback initCallback = ^(BOOL success, id result, NSString* error, NSInteger statusCode) {
+        if (success) {
+            NSLog(@"AppDelegate: initCallback success: %@", error);
+            
+
+//            [[Lootsie sharedInstance] achievementReachedWithId:@"castlehit"];
+        } else {
+            NSLog(@"AppDelegate: initCallback failure: %@", error);
+        }
+    };
+    
+    [[Lootsie sharedInstance] setLogLevel:verbose];
+    
+    [[Lootsie sharedInstance] initWithAppKeyCallback:@"65356DA3B2AE759182C8ACB278CB7DF6666C45ED6A5CDDA7267EFC214E8F3F31" callback:initCallback];
+    
+    
 	
 	// Default texture format for PNG/BMP/TIFF/JPEG/GIF images
 	// It can be RGBA8888, RGBA4444, RGB5_A1, RGB565
