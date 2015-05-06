@@ -5,9 +5,11 @@
 #import <AVFoundation/AVFoundation.h>
 #import "SimpleAudioEngine.h"
 
+#import "Lootsie.h"
 @class Ground, Piece, HUD, PlayerAreaManager, Weapon, Projectile, PlayerArea, City;
 
-@interface Battlefield : CCLayer 
+//@interface Battlefield : CCLayer
+@interface Battlefield : CCLayer <LootsieDelegate>
 {
 	CGPoint initialTouch; 
 	float screenMomentum; 

@@ -43,6 +43,12 @@ typedef enum LOOTSIE_NOTIFICATION_CONFIGURATION {
 typedef void(^ServiceCallback)(BOOL success, id result, NSString* errorMessage, NSInteger statusCode);
 typedef void(^CompletionCallback)(BOOL finished);
 
+// moved from LootsieEngine.h
+@protocol LootsieDelegate <NSObject>
+- (void) achievementReachedBarExpanded;
+- (void) achievementReachedBarClosed;
+@end
+
 
 @interface Lootsie : NSObject {
 @public
@@ -95,5 +101,12 @@ typedef void(^CompletionCallback)(BOOL finished);
 
 - (void) setNotificationConfiguration:(LOOTSIE_NOTIFICATION_CONFIGURATION) notificationConfig;
 //- (LOOTSIE_NOTIFICATION_CONFIGURATION) getNotificationConfiguration;
+
+// moved from LootsieEngine.h
+- (id<LootsieDelegate>) getDelegate;
+
+// moved from LootsieEngine.h
+// delegate for Lootsie
+@property (assign, nonatomic) id<LootsieDelegate> delegate;
 
 @end

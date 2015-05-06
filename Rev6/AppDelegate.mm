@@ -127,10 +127,14 @@
         }
     };
     
-    [[Lootsie sharedInstance] setLogLevel:verbose];
+//    [[Lootsie sharedInstance] setLogLevel:verbose];
     
     [[Lootsie sharedInstance] initWithAppKeyCallback:@"65356DA3B2AE759182C8ACB278CB7DF6666C45ED6A5CDDA7267EFC214E8F3F31" callback:initCallback];
     
+    
+    // one time achievement
+    [[Lootsie sharedInstance] setNotificationConfiguration:notify_to_rewardsPage];
+    [[Lootsie sharedInstance] achievementReachedWithId:@"applaunch"];
     
 	
 	// Default texture format for PNG/BMP/TIFF/JPEG/GIF images

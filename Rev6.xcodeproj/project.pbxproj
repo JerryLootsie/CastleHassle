@@ -485,8 +485,6 @@
 		02F59C1614BDD14800C9349A /* CannonBallTrail.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02F59C0F14BDD14800C9349A /* CannonBallTrail.mm */; };
 		02F59C1714BDD14800C9349A /* DestroyedPieceAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02F59C1114BDD14800C9349A /* DestroyedPieceAnimation.mm */; };
 		52E8F4F61AF437F40081BF36 /* LootsieSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52E8F4F51AF437F40081BF36 /* LootsieSDKResources.bundle */; };
-		52E8F5021AF439800081BF36 /* libLootsie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E8F4FC1AF438B50081BF36 /* libLootsie.a */; };
-		52E8F5031AF439830081BF36 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E8F4FD1AF438B50081BF36 /* libRestKit.a */; };
 		52F833A01AF43ABE002F9F36 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F8339F1AF43ABE002F9F36 /* Security.framework */; };
 		52F833A21AF43ACD002F9F36 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F833A11AF43ACD002F9F36 /* SystemConfiguration.framework */; };
 		52F833A41AF43AD8002F9F36 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F833A31AF43AD8002F9F36 /* MobileCoreServices.framework */; };
@@ -1197,8 +1195,6 @@
 		02F59C1114BDD14800C9349A /* DestroyedPieceAnimation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DestroyedPieceAnimation.mm; sourceTree = "<group>"; };
 		52E8F4F51AF437F40081BF36 /* LootsieSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = LootsieSDKResources.bundle; path = Lootsie/LootsieSDKResources.bundle; sourceTree = "<group>"; };
 		52E8F4FB1AF438B50081BF36 /* Lootsie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lootsie.h; sourceTree = "<group>"; };
-		52E8F4FC1AF438B50081BF36 /* libLootsie.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLootsie.a; path = Lootsie/iphoneos/libLootsie.a; sourceTree = "<group>"; };
-		52E8F4FD1AF438B50081BF36 /* libRestKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRestKit.a; path = Lootsie/iphoneos/libRestKit.a; sourceTree = "<group>"; };
 		52F8339F1AF43ABE002F9F36 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		52F833A11AF43ACD002F9F36 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		52F833A31AF43AD8002F9F36 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -1215,8 +1211,6 @@
 				52F833A41AF43AD8002F9F36 /* MobileCoreServices.framework in Frameworks */,
 				02F5976914BDCB3F00C9349A /* UIKit.framework in Frameworks */,
 				02F5976B14BDCB3F00C9349A /* Foundation.framework in Frameworks */,
-				52E8F5021AF439800081BF36 /* libLootsie.a in Frameworks */,
-				52E8F5031AF439830081BF36 /* libRestKit.a in Frameworks */,
 				02A0C4E214BEC68D00B739E3 /* StoreKit.framework in Frameworks */,
 				02F5975F14BDCB3F00C9349A /* QuartzCore.framework in Frameworks */,
 				02F5976114BDCB3F00C9349A /* OpenGLES.framework in Frameworks */,
@@ -2412,8 +2406,6 @@
 			isa = PBXGroup;
 			children = (
 				52E8F4F91AF438B50081BF36 /* include */,
-				52E8F4FC1AF438B50081BF36 /* libLootsie.a */,
-				52E8F4FD1AF438B50081BF36 /* libRestKit.a */,
 			);
 			name = iphoneos;
 			sourceTree = "<group>";
@@ -3032,7 +3024,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Rev6/Lootsie/iphonesimulator/**",
+					"$(PROJECT_DIR)/Rev6/Lootsie/iphoneos/**",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -3065,7 +3057,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Rev6/Lootsie/iphonesimulator/**",
+					"$(PROJECT_DIR)/Rev6/Lootsie/iphoneos/**",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",

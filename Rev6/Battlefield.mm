@@ -299,6 +299,22 @@ static Battlefield * instance = nil;
 	}
 }
 
+
+// Lootsie delegate method.  This is called when an achievement (Lootsie pop!) is expanded (Lootsie roll!).
+- (void) achievementReachedBarExpanded
+{
+    NSLog(@"Battlefield: AppDelegate callback: Achievement reached and the Lootsie Pop has been expanded into a Lootsie Roll because the user tapped it!");
+    
+    [self pauseSchedulerAndActions];
+}
+
+// Lootsie delegate method.  This is called when an achievement page has been closed.
+- (void) achievementReachedBarClosed
+{
+    NSLog(@"Battlefield: AppDelegate callback: Achievement page has been closed");
+    [self resumeSchedulerAndActions];
+}
+
 -(void) cleanupTick:(Piece *)piece body:(b2Body *)b {
 	
     [playerAreaManager removePiece:piece forPlayer:piece.owner];
@@ -318,7 +334,22 @@ static Battlefield * instance = nil;
         
         if (piece.owner.ai != nil) {
             // player hit the ai
-            [[Lootsie sharedInstance] achievementReachedWithId:@"castlehit"];
+            // notify_to_disabled is currently undefined....
+            //[[Lootsie sharedInstance] setNotificationConfiguration:notify_to_disabled];
+            //[[Lootsie sharedInstance] achievementReachedWithId:@"castlehit"];
+            
+            // test achievement before init - using queue
+            ServiceCallback achievementReachedCallback = ^(BOOL success, id result, NSString* errorMessage, NSInteger statusCode) {
+                if (errorMessage != nil) {
+                    NSLog(@"Battlefield: achievementReachedCallback: %@", errorMessage);
+                } else {
+                    NSLog(@"Battlefield: achievementReachedCallback:");
+                }
+            };
+            
+            [[Lootsie sharedInstance] setDelegate:self];
+            [[Lootsie sharedInstance] achievementReachedWithIdLocationCallback:@"castlehit" location:@"default" callback:achievementReachedCallback];
+            
             NSLog(@"Battlefield: cleanupTick");
         }
 		
@@ -413,6 +444,7 @@ static Battlefield * instance = nil;
 		}
 		
 
+
 		Winner* w = [Winner node];
 		[w setGameTime:gameTime];
 		[[MainMenu instance] addChild:w];
@@ -420,6 +452,9 @@ static Battlefield * instance = nil;
 		
 		[self resetInstance];
 
+        [[Lootsie sharedInstance] setNotificationConfiguration:notify_to_rewardsPage];
+        [[Lootsie sharedInstance] achievementReachedWithId:@"winGame"];
+    
 }
 
 -(void) loseGame {
@@ -434,6 +469,10 @@ static Battlefield * instance = nil;
     
 	
 	[self resetInstance];
+    
+    
+    [[Lootsie sharedInstance] setNotificationConfiguration:notify_to_rewardsPage];
+    [[Lootsie sharedInstance] achievementReachedWithId:@"loseGame"];
 }
 
 -(BOOL) playerDidWin {
@@ -830,13 +869,23 @@ static Battlefield * instance = nil;
 }
 
 -(void) dealloc {
-	[touchables release];
-	[tileables release];
-    [selected release];
-    [lastCreated release];
-    [hud release];
-    [playerAreaManager release];
-    [bin release];
+    
+    [[Lootsie sharedInstance] setDelegate:nil];
+    
+    // Lootsie fix
+    if(sizeof(int*) == 4) {
+        //system is 32-bit
+        [touchables release];
+        [tileables release];
+        [selected release];
+        [lastCreated release];
+        [hud release];
+        [playerAreaManager release];
+        [bin release];
+    } else if(sizeof(int*) == 8) {
+        //system is 64-bit
+    }
+
 	
 	delete world;
 	
