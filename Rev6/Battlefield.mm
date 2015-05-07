@@ -304,14 +304,17 @@ static Battlefield * instance = nil;
 - (void) achievementReachedBarExpanded
 {
     NSLog(@"Battlefield: AppDelegate callback: Achievement reached and the Lootsie Pop has been expanded into a Lootsie Roll because the user tapped it!");
-    
+
     [self pauseSchedulerAndActions];
+    [[CCDirector sharedDirector] stopAnimation];
 }
 
 // Lootsie delegate method.  This is called when an achievement page has been closed.
 - (void) achievementReachedBarClosed
 {
     NSLog(@"Battlefield: AppDelegate callback: Achievement page has been closed");
+    
+    [[CCDirector sharedDirector] startAnimation];
     [self resumeSchedulerAndActions];
 }
 
@@ -870,7 +873,8 @@ static Battlefield * instance = nil;
 
 -(void) dealloc {
     
-    [[Lootsie sharedInstance] setDelegate:nil];
+    //[[Lootsie sharedInstance] setDelegate:nil];
+    [[Lootsie sharedInstance] setDelegate:[AppDelegate sharedInstance]];
     
     // Lootsie fix
     if(sizeof(int*) == 4) {

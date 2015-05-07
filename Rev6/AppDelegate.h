@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Lootsie.h"
 
 @class RootViewController;
 
-@interface AppDelegate : NSObject <UIApplicationDelegate> {
+@interface AppDelegate : NSObject <UIApplicationDelegate, LootsieDelegate> {
 	UIWindow			*window;
 	RootViewController	*viewController;
 }
@@ -19,4 +20,7 @@
 
 + (NSString *) documentDir;
 
++(AppDelegate*) sharedInstance;
+- (id) init;
+-(UIViewController*) getRootViewController;
 @end
