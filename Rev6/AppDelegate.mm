@@ -14,6 +14,8 @@
 #import "MainMenu.h"
 #import "Lootsie.h"
 
+
+
 @implementation AppDelegate
 
 @synthesize window;
@@ -206,6 +208,8 @@
 	
     // Run the intro Scene
     [[CCDirector sharedDirector] runWithScene:[MainMenu instance]];
+    
+    animState = ANIM_PLAYING;
 }
 
 -(UIViewController*) getRootViewController {
@@ -217,9 +221,12 @@
 {
     NSLog(@"AppDelegate: AppDelegate callback: Achievement reached and the Lootsie Pop has been expanded into a Lootsie Roll because the user tapped it!");
     
-	//[[CCDirector sharedDirector] pause];
-    [[CCDirector sharedDirector] stopAnimation];
-    //[self pauseSchedulerAndActions];
+    if (animState == ANIM_PLAYING) {
+        //[[CCDirector sharedDirector] pause];
+        [[CCDirector sharedDirector] stopAnimation];
+        //[self pauseSchedulerAndActions];
+        animState = ANIM_STOPPED;
+    }
 }
 
 // Lootsie delegate method.  This is called when an achievement page has been closed.
@@ -228,8 +235,12 @@
     NSLog(@"AppDelegate: AppDelegate callback: Achievement page has been closed");
     
 	//[[CCDirector sharedDirector] resume];
-    [[CCDirector sharedDirector] startAnimation];
-    //[self resumeSchedulerAndActions];
+    
+    if (animState == ANIM_STOPPED) {
+        [[CCDirector sharedDirector] startAnimation];
+        //[self resumeSchedulerAndActions];
+        animState = ANIM_PLAYING;
+    }
 }
 
 

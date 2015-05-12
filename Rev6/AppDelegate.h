@@ -11,10 +11,20 @@
 
 @class RootViewController;
 
+typedef enum playerStateTypes
+{
+    ANIM_OFF,
+    ANIM_PLAYING,
+    ANIM_STOPPED
+} AnimationState;
+
 @interface AppDelegate : NSObject <UIApplicationDelegate, LootsieDelegate> {
 	UIWindow			*window;
 	RootViewController	*viewController;
+    AnimationState animState;
 }
+
+
 
 @property (nonatomic, retain) UIWindow *window;
 
