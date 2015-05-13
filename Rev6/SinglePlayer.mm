@@ -31,17 +31,28 @@ static SinglePlayer* instance = nil;
 	
 	if( (self=[super init])) {
 		
+        CGSize s = [[CCDirector sharedDirector] winSize];
+        NSLog(@"MainMenu: winSize: %@", NSStringFromCGSize(s));
+        // ipad retina winsize: 1024,768
+        // iphone6 winsize: {480, 320}
+        float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+        float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+        float scaleFactor = s.width/320.0;
+        
         CCSprite* bg = sprite(@"background.jpg");
-        [bg setPosition:ccp(240, 160)];
+//        [bg setPosition:ccp(240, 160)];
+        [bg setPosition:ccp(s.width/2, s.height/2)];
         [self addChild:bg z:0];
         
 		CCSprite* navBack = sprite(@"menuBack.png");
-        [navBack setPosition:ccp(240, 160)];
-		[self addChild:navBack z:0];	
+//        [navBack setPosition:ccp(240, 160)];
+        [navBack setPosition:ccp(s.width/2, s.height/2)];
+		[self addChild:navBack z:0];
 		
 		CCLabelTTF* title = [CCLabelTTF labelWithString:@"Single Player Game" fontName:@"Arial-BoldMT" fontSize:24];
 		[title setColor:ccc3(15, 147, 222)];
-		title.position = ccp(240,280);
+//		title.position = ccp(240,280);
+        title.position = ccp(s.width/2, innerBackgroundHeightOffset + 280.0);
 		[self addChild:title z:1];//Pirla
 				
 		difficulties = [[CHToggle alloc] initWithImageName:@"comboButtons.png"];
@@ -51,15 +62,22 @@ static SinglePlayer* instance = nil;
 												   deselectedRect:CGRectMake(0, 157, 94, 36) 
 													   buttonText:@"       Easy"];
 		[difficulties addItem:easy];
-		[easy setYOffset:5];
+//		[easy setYOffset:5];
+        [easy setYOffset:5*scaleFactor];
 		[easy release];
 		
-		CHToggleItem* medium = [[CHToggleItem alloc] initWithParent:difficulties 
-													   selectedRect:CGRectMake(94, 121, 92, 36) 
-													 deselectedRect:CGRectMake(94, 157, 92, 36) 
-														 buttonText:@"     Medium"];
+//		CHToggleItem* medium = [[CHToggleItem alloc] initWithParent:difficulties 
+//													   selectedRect:CGRectMake(94, 121, 92, 36) 
+//													 deselectedRect:CGRectMake(94, 157, 92, 36) 
+//														 buttonText:@"     Medium"];
+        CHToggleItem* medium = [[CHToggleItem alloc] initWithParent:difficulties
+                                                       selectedRect:CGRectMake(0, 121, 92, 36)
+                                                     deselectedRect:CGRectMake(0, 157, 92, 36)
+                                                         buttonText:@"     Medium"];
+        
 		[difficulties addItem:medium];
-		[medium setYOffset:5];
+//		[medium setYOffset:5];
+        [medium setYOffset:5*scaleFactor];
 		[medium release];
 		
 		CHToggleItem* hard = [[CHToggleItem alloc] initWithParent:difficulties 
@@ -67,10 +85,16 @@ static SinglePlayer* instance = nil;
 												   deselectedRect:CGRectMake(186, 157, 94, 36) 
 													   buttonText:@"       Hard"];
 		[difficulties addItem:hard];
-		[hard setYOffset:5];
+		//[hard setYOffset:5];
+        [hard setYOffset:5*scaleFactor];
 		[hard release];
 		
+        // offsets are handled in CHToggleItem
 		[difficulties setPosition:ccp(-15,75)];
+//        [difficulties setAnchorPoint:ccp(0.5f,0.5f)];
+//        [difficulties setAnchorPoint:ccp(0,0)];
+//        [difficulties setPositionInPixels:ccp(innerBackgroundWidthOffset - 15.0, innerBackgroundHeightOffset + 75.0)];
+//        [difficulties setPosition:ccp(innerBackgroundWidthOffset - 15.0, innerBackgroundHeightOffset + 75.0)];
 		[self addChild:difficulties z:3];
 		[toggles addObject:difficulties];
 		[difficulties release];
@@ -83,7 +107,7 @@ static SinglePlayer* instance = nil;
 												  deselectedRect:CGRectMake(0, 157, 94, 36) 
 													  buttonText:@"          1"];
 		[opponents addItem:one];
-		[one setYOffset:5];
+		[one setYOffset:5*scaleFactor];
 		[one release];
 		
 		CHToggleItem* two = [[CHToggleItem alloc] initWithParent:opponents 
@@ -91,7 +115,7 @@ static SinglePlayer* instance = nil;
 												  deselectedRect:CGRectMake(94, 157, 92, 36) 
 													  buttonText:@"          2"];
 		[opponents addItem:two];
-		[two setYOffset:5];
+		[two setYOffset:5*scaleFactor];
 		[two release];
 		
 		CHToggleItem* three = [[CHToggleItem alloc] initWithParent:opponents 
@@ -99,10 +123,11 @@ static SinglePlayer* instance = nil;
 													deselectedRect:CGRectMake(186, 157, 94, 36) 
 														buttonText:@"          3"];
 		[opponents addItem:three];
-		[three setYOffset:5];
+		[three setYOffset:5*scaleFactor];
 		[three release];
 		
 		[opponents setPosition:ccp(-15,13)];
+//        [opponents setPosition:ccp(innerBackgroundWidthOffset - 15.0, innerBackgroundHeightOffset + 13.0)];
 		[self addChild:opponents z:3];
 		
 		[toggles addObject:opponents];
@@ -134,6 +159,7 @@ static SinglePlayer* instance = nil;
 		[brittany release];
 		
 		[environment setPosition:ccp(-15,-55)];
+//        [environment setPosition:ccp(innerBackgroundWidthOffset - 15.0, innerBackgroundHeightOffset - 55.0)];
 		[self addChild:environment z:3];
 		
 		
@@ -143,7 +169,8 @@ static SinglePlayer* instance = nil;
                                                           fontSize:18];
 		[difficultyLabel setColor:ccc3(15, 147, 222)];
 		[difficultyLabel setAnchorPoint:ccp(0,0)];
-		difficultyLabel.position = ccp(20,235);
+		//difficultyLabel.position = ccp(20,235);
+        difficultyLabel.position = ccp(innerBackgroundWidthOffset + 20, innerBackgroundHeightOffset + 235);
 		[self addChild:difficultyLabel];
 		
 		CCLabelTTF* opponentsLabel = [CCLabelTTF labelWithString:@"Opponents"
@@ -151,7 +178,8 @@ static SinglePlayer* instance = nil;
                                                          fontSize:18];
 		[opponentsLabel setColor:ccc3(15, 147, 222)];
 		[opponentsLabel setAnchorPoint:ccp(0,0)];
-		opponentsLabel.position = ccp(20,175);
+		//opponentsLabel.position = ccp(20,175);
+        opponentsLabel.position = ccp(innerBackgroundWidthOffset + 20, innerBackgroundHeightOffset + 175);
 		[self addChild:opponentsLabel];
 		
 		CCLabelTTF* environmentLabel = [CCLabelTTF labelWithString:@"Environment"
@@ -159,7 +187,8 @@ static SinglePlayer* instance = nil;
 																		   fontSize:18];
 		[environmentLabel setColor:ccc3(15, 147, 222)];
 		[environmentLabel setAnchorPoint:ccp(0,0)];
-		environmentLabel.position = ccp(20,110);
+		//environmentLabel.position = ccp(20,110);
+        environmentLabel.position = ccp(innerBackgroundWidthOffset + 20,innerBackgroundHeightOffset + 110);
 		[self addChild:environmentLabel];
 		
 		[self makeButtonWithString:@"Start Game"

@@ -31,6 +31,14 @@
 		int numAI = [GameSettings instance].numPlayers-1;
 		BOOL makeCity = NO;
 		
+        CGSize s = [[CCDirector sharedDirector] winSize];
+        NSLog(@"PlayerAreaManager: winSize: %@", NSStringFromCGSize(s));
+        // ipad retina winsize: 1024,768
+        // iphone6 winsize: {480, 320}
+        float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+        float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+        float scaleFactor = s.width/320.0;
+        
 		for(uint i=0; i<MAX_PLAYERS; i++) {
         
             BOOL indexIsPlayer = i == [GameSettings instance].playerID;
@@ -43,7 +51,7 @@
 
 			
 			PlayerArea* playerArea = [[[PlayerArea alloc] initWithLeft:PLAYER_GROUND_WIDTH*i 
-												   dimentions:CGPointMake(PLAYER_GROUND_WIDTH, PLAYER_GROUND_HEIGHT)
+												   dimentions:CGPointMake(PLAYER_GROUND_WIDTH, PLAYER_GROUND_HEIGHT + innerBackgroundHeightOffset)
 														world:world] autorelease];
 			
 			if(makeCity) { 

@@ -62,7 +62,11 @@
 }
 
 -(void) makeCityWithColor:(ccColor3B)color {
-	self.city = [[[City alloc] initWithCoords:ccp(left+(PLAYER_GROUND_WIDTH/2.0), PLAYER_GROUND_HEIGHT) owner:self colorVal:color] autorelease];
+    
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+    
+	self.city = [[[City alloc] initWithCoords:ccp(left+(PLAYER_GROUND_WIDTH/2.0), PLAYER_GROUND_HEIGHT + innerBackgroundHeightOffset) owner:self colorVal:color] autorelease];
 	
     [self addPiece:city];
 }

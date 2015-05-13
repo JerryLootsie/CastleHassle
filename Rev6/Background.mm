@@ -25,17 +25,22 @@
 		
 		CGSize screenSize = [CCDirector sharedDirector].winSize;
 		
+        float innerBackgroundHeightOffset = (screenSize.height/2) - (320.0/2.0);
+        float innerBackgroundWidthOffset = (screenSize.width/2) - (480.0/2.0);
+        float scaleFactor = screenSize.width/320.0;
         
 		// setup the left sprite
 		self.imageA = spriteWithRect(lImg, CGRectMake(0,0,dim.x,dim.y));
-        self.imageA.position = ccp(-1*dim.x/2+screenSize.width/2, dim.y/2);
+        //self.imageA.position = ccp(-1*dim.x/2+screenSize.width/2, dim.y/2);
+        self.imageA.position = ccp(-1*dim.x/2+screenSize.width/2, innerBackgroundHeightOffset + dim.y/2);
         self.imageA.anchorPoint = ccp(0,.5);
 		[parent addChild:self.imageA z:index];
     
 		 
 		// setup the right sprite
 		self.imageB = spriteWithRect(rImg, CGRectMake(0,0,dim.x,dim.y));
-		self.imageB.position = ccp(dim.x/2+screenSize.width/2-1, dim.y/2);
+		//self.imageB.position = ccp(dim.x/2+screenSize.width/2-1, dim.y/2);
+        self.imageB.position = ccp(dim.x/2+screenSize.width/2-1, innerBackgroundHeightOffset + dim.y/2);
         self.imageB.anchorPoint = ccp(0,.5);
         [parent addChild:self.imageB z:index];
 	}

@@ -127,23 +127,34 @@ static Battlefield * instance = nil;
 		world->SetContinuousPhysics(true);
 		world->SetContactListener(new ContactListener);
 		
+        CGSize s = [[CCDirector sharedDirector] winSize];
+        NSLog(@"Battlefield: winSize: %@", NSStringFromCGSize(s));
+        // ipad retina winsize: 1024,768
+        // iphone6 winsize: {480, 320}
+        float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+        float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+        float scaleFactor = s.width/320.0;
+        
 		Background * foreground = [[[Background alloc] initWithLeftImage:[gameSettings getBackgroundFileName:@"frontLeft.png"]
 															 rightImage:[gameSettings getBackgroundFileName:@"frontRight.png"]
-														 imageDimension:CGPointMake(607.0, 320.0) 
+														 imageDimension:CGPointMake(607.0, 320.0)
+                                                         // imageDimension:CGPointMake(s.width, s.height)
 																	layer:self
 																  index:FOREGROUND_Z_INDEX 
 														 parallaxFactor:-1.0] autorelease];
 		
 		Background * midground = [[[Background alloc] initWithLeftImage:[gameSettings getBackgroundFileName:@"middleLeft.png"]
 															rightImage:[gameSettings getBackgroundFileName:@"middleRight.png"]
-														imageDimension:CGPointMake(607.0, 320.0) 
+														imageDimension:CGPointMake(607.0, 320.0)
+                                                         //imageDimension:CGPointMake(s.width, s.height)
 																 layer:self
 																 index:MIDGROUND_Z_INDEX 
 														parallaxFactor:BACKGROUND_SCALE_FACTOR] autorelease];
 
 		Background * background = [[[Background alloc] initWithLeftImage:[gameSettings getBackgroundFileName:@"backLeft.jpg"]
 													  	 	 rightImage:[gameSettings getBackgroundFileName:@"backRight.jpg"]
-														 imageDimension:CGPointMake(607.0, 320.0) 
+														 imageDimension:CGPointMake(607.0, 320.0)
+                                                         //imageDimension:CGPointMake(s.width, s.height)
 																  layer:self
 																  index:BACKGROUND_Z_INDEX 
 														 parallaxFactor:10.0] autorelease];
@@ -508,6 +519,8 @@ static Battlefield * instance = nil;
 	piece.owner = player;
 	
 	if(finalize) {
+        NSLog(@"Battlefield: addNewPieceWithCoords: %@", NSStringFromCGPoint(p));
+        
 		[piece snapToPosition:b2Vec2(piece.body->GetPosition().x * PTM_RATIO, piece.body->GetPosition().y * PTM_RATIO)];
 		[piece finalizePiece];
 	}
@@ -835,8 +848,15 @@ static Battlefield * instance = nil;
 	
 	filename = [[NSBundle mainBundle] pathForResource:filename ofType:@"dat"];
 
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    NSLog(@"Battlefield: winSize: %@", NSStringFromCGSize(s));
+    // ipad retina winsize: 1024,768
+    // iphone6 winsize: {480, 320}
+    float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+    float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+    float scaleFactor = s.width/320.0;
 
-	NSLog(@"attempting to open %@", filename);
+	NSLog(@"Battlefield: loadForPlayer: attempting to open %@", filename);
 	
 	NSDictionary* state = [[NSString stringWithContentsOfFile:filename encoding:NSASCIIStringEncoding error:nil] objectFromJSONString];
 	
@@ -847,7 +867,11 @@ static Battlefield * instance = nil;
 		Class c = NSClassFromString([data objectForKey:@"class"]);
 		NSString* s = [NSString stringWithFormat:@"%@.png", [[data objectForKey:@"class"] lowercaseString]];
 		float x = [[data objectForKey:@"x"] floatValue]*PTM_RATIO;
-		CGPoint p = CGPointMake([[data objectForKey:@"y"] floatValue]*PTM_RATIO+player.left, x);
+        // this will offset everything to the proper height, but it then falls down!
+        // ground isn't setup properly!
+        x += innerBackgroundHeightOffset;
+        float y = [[data objectForKey:@"y"] floatValue]*PTM_RATIO;
+		CGPoint p = CGPointMake(y +player.left, x);
 		BOOL left = [[data objectForKey:@"left"] intValue] == 0;
 		BOOL f = YES;
 		

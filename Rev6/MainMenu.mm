@@ -65,17 +65,31 @@ static MainMenu * instance = nil;
 	
 	if( (self=[super init])) {
 		
+        CGSize s = [[CCDirector sharedDirector] winSize];
+        NSLog(@"MainMenu: winSize: %@", NSStringFromCGSize(s));
+        // ipad retina winsize: 1024,768
+        // iphone6 winsize: {480, 320}
+        
+        
 		bg = sprite(@"background.jpg");
-        [bg setPosition:ccp(240, 160)];
+//        [bg setPosition:ccp(240, 160)];
+        [bg setPosition:ccp(s.width/2, s.height/2)];
         [self addChild:bg z:0];
 		
 		CCSprite* logo = sprite(@"logo.png");
 
-        [logo setPosition:ccp(240, 245)];
+//        [logo setPosition:ccp(240, 245)];
+        float innerBackgroundOffset = (s.height/2) - (320.0/2.0);
+        //CGPoint logoPosition = ccp(s.width/2, (s.height * (245.0/320.0)));
+        CGPoint logoPosition = ccp(s.width/2, innerBackgroundOffset + 245.0);
+        NSLog(@"MainMenu: logoPosition: %@", NSStringFromCGPoint(logoPosition));
+        [logo setPosition:logoPosition];
 		[self addChild:logo z:0];
 		
 		CCSprite* navBack = sprite(@"splashNavBack.png");
-        [navBack setPosition:ccp(240, 62)];
+//        [navBack setPosition:ccp(240, 62)];
+//        [navBack setPosition:ccp(s.width/2, (s.height *(62.0/320.0)))];
+        [navBack setPosition:ccp(s.width/2, (innerBackgroundOffset + 62.0))];
 		[self addChild:navBack z:0];
 		
 		
