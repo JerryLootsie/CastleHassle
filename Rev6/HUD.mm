@@ -36,15 +36,23 @@
 		
 		[[HUDActionController instance] setHud:self];
         
+        CGSize s = [[CCDirector sharedDirector] winSize];
+        NSLog(@"HUD: initMainMenu: winSize: %@", NSStringFromCGSize(s));
+        // ipad retina winsize: 1024,768
+        // iphone6 winsize: {480, 320}
+        float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+        float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+        float scaleFactor = s.width/320.0;
+        
 		self.tabUpSprite = spriteWithRect(@"hud.png", CGRectMake(184, 58, 112, 22));
-		tabUpSprite.position = CGPointMake(480.0/2.0, 320.0-HUD_HEIGHT-(22.0/2.0));
+		tabUpSprite.position = CGPointMake(s.width/2.0, innerBackgroundHeightOffset + 320.0-HUD_HEIGHT-(22.0/2.0));
 		
 		self.tabDownSprite = spriteWithRect(@"hud.png", CGRectMake(184, 81, 112, 22));
-		tabDownSprite.position = CGPointMake(480.0/2.0, 320.0-(22.0/2.0));
+		tabDownSprite.position = CGPointMake(s.width/2.0, innerBackgroundHeightOffset + 320.0-(22.0/2.0));
 		[tabDownSprite setVisible:NO];
 		
 		self.tabSprite = spriteWithRect(@"hud.png", CGRectMake(0, 0, 480, HUD_HEIGHT));
-		tabSprite.position = CGPointMake(480.0/2.0, 320.0-(HUD_HEIGHT/2.0));
+		tabSprite.position = CGPointMake(s.width/2.0, innerBackgroundHeightOffset + 320.0-(HUD_HEIGHT/2.0));
 		[tabSprite setVisible:YES];
 		[tabSprite setOpacity:200.0f];
 		
@@ -65,7 +73,7 @@
 		gold.rightBound = gold.leftBound+100;
         
 		gold.img = spriteWithRect(@"coins.png", CGRectMake(0, 0, 20, 20));
-		gold.img.position = ccp(0, 320-HUD_HEIGHT-15);
+		gold.img.position = ccp(innerBackgroundWidthOffset, innerBackgroundHeightOffset + 320-HUD_HEIGHT-15);
 		[[Battlefield instance] addChild:gold.img z:HUD_Z_INDEX];
 		[gold postInit];
 		[gold show];
@@ -76,28 +84,41 @@
 }
 
 -(void) initMainMenu {
+    
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    NSLog(@"HUD: initMainMenu: winSize: %@", NSStringFromCGSize(s));
+    // ipad retina winsize: 1024,768
+    // iphone6 winsize: {480, 320}
+    float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+    float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+    float scaleFactor = s.width/320.0;
+    
+    
 	self.countDownTimer = [CCLabelTTF labelWithString:@"" fontName:@"Arial" fontSize:48.0];
-	self.countDownTimer.position = ccp(240.0, 180.0);
+	self.countDownTimer.position = ccp(innerBackgroundWidthOffset + 240.0, innerBackgroundHeightOffset + 180.0);
 	self.countDownTimer.color = ccRED;
 	[[Battlefield instance] addChild:self.countDownTimer z:ANIMATION_Z_INDEX];
 	
 	self.mainMenu = [[[HUDMenu alloc] init] autorelease];
 	
-	[mainMenu addButtonItemWithImageName:@"stdButtons.png"
-                                imageBox:CGRectMake(0, 77, 104, 37) 
+	ButtonItem * buildButton = [mainMenu addButtonItemWithImageName:@"stdButtons.png"
+                                imageBox:CGRectMake(0, 77, 104, 37)
                            swingImageBox:CGRectMake(0, 0, 0, 0)
-                                selector:@selector(showBuildMenu) 
-                                   title:@"Build"]; 
+                                selector:@selector(showBuildMenu)
+                                   title:@"Build"];
+    
+    buildButton.leftBound = innerBackgroundWidthOffset + ICON_SPACING;
+    buildButton.rightBound = innerBackgroundWidthOffset + ICON_SPACING + buildButton.img.textureRect.size.width;
     
     if(LEVEL_CREATION_BUTTONS) {
         [mainMenu addButtonItemWithImageName:@"stdButtons.png"
-                                    imageBox:CGRectMake(0, 77, 104, 37) 
+                                    imageBox:CGRectMake(0, 77, 104, 37)
                                swingImageBox:CGRectMake(0, 0, 0, 0)
                                     selector:@selector(save) 
                                        title:@"Save"];
         
         [mainMenu addButtonItemWithImageName:@"stdButtons.png"
-                                    imageBox:CGRectMake(0, 77, 104, 37) 
+                                    imageBox:CGRectMake(0, 77, 104, 37)
                                swingImageBox:CGRectMake(0, 0, 0, 0)
                                     selector:@selector(clear) 
                                        title:@"Clear"];
@@ -105,17 +126,19 @@
 	
 	
 	ButtonItem * settingButton = [mainMenu addButtonItemWithImageName:@"stdButtons.png"
-                                                             imageBox:CGRectMake(0, 77, 104, 37) 
+                                                             imageBox:CGRectMake(0, 77, 104, 37)
                                                         swingImageBox:CGRectMake(0, 0, 0, 0)
                                                              selector:@selector(showSettings) 
                                                                 title:@"Menu"]; 
 	
     
 	
-	settingButton.leftBound = 480-ICON_SPACING-settingButton.img.textureRect.size.width;
-	settingButton.rightBound = 480-ICON_SPACING;
+    settingButton.leftBound = innerBackgroundWidthOffset + 480 -ICON_SPACING -settingButton.img.textureRect.size.width;
+    settingButton.rightBound = innerBackgroundWidthOffset + 480 -ICON_SPACING;
 	
 	
+    
+    
 	[mainMenu hideAll];
 }
 
@@ -173,6 +196,8 @@
 
 -(void) initBuildNextMenu {
 	
+
+    
 	self.buildNextMenu = [[[HUDMenu alloc] init] autorelease];
 	
 	[buildNextMenu addButtonItemWithImageName:@"stdButtons.png"
@@ -227,8 +252,16 @@
 -(void) initBuildMenu {
 	self.buildMenu = [[[HUDMenu alloc] init] autorelease];
 	
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    NSLog(@"HUD: initBuildMenu: winSize: %@", NSStringFromCGSize(s));
+    // ipad retina winsize: 1024,768
+    // iphone6 winsize: {480, 320}
+    float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+    float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+    float scaleFactor = s.width/320.0;
+    
 	ButtonItem* leftBtn = [buildMenu addButtonItemWithImageName:@"stdButtons.png"
-                                                       imageBox:CGRectMake(105, 78, 38, 37) 
+                                                       imageBox:CGRectMake(innerBackgroundWidthOffset + 105, innerBackgroundHeightOffset + 78, 38, 37)
                                                   swingImageBox:CGRectMake(0, 0, 0, 0)
                                                        selector:@selector(previousConstructionItems) 
                                                           title:@""];

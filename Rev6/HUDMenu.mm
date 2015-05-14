@@ -101,15 +101,26 @@
 	
 	// set left/right limits
 	item.leftBound = extremeRight;
+    //item.leftBound = 0;
 	extremeRight += expand ? HUD_STATUS_ITEM_SIZE + ICON_SPACING : box.size.width + ICON_SPACING;
 	item.rightBound = extremeRight;
 	
 	// create sprites along top border
 	item.img = spriteWithRect(imageName, box);
 	
+    
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+    float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+    float scaleFactor = s.width/320.0;
+    
 	// put the sprite in the right position
-	item.img.position = ccp(item.leftBound+(item.rightBound-item.leftBound)/2, 320-(HUD_HEIGHT/2));
-	
+	//item.img.position = ccp(item.leftBound+(item.rightBound-item.leftBound)/2, 320-(HUD_HEIGHT/2));
+    // this puts it in the correct position, but still clickable in the old area?
+	//item.img.position = ccp(item.leftBound+(item.rightBound-item.leftBound)/2, innerBackgroundHeightOffset +320 - (HUD_HEIGHT/2));
+    item.img.position = ccp(innerBackgroundWidthOffset + item.leftBound+(item.rightBound-item.leftBound)/2,
+                            innerBackgroundHeightOffset +320 - (HUD_HEIGHT/2));
+    
 	item.imageName = imageName;
 	
 	[item postInit];
@@ -207,8 +218,16 @@
 	return NO;
 }
 
+// adjust clickable position
 -(CGRect) hudRect {
-	return CGRectMake(0,320-HUD_HEIGHT,480,HUD_HEIGHT);
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+    float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+    float scaleFactor = s.width/320.0;
+    
+	//return CGRectMake(0,320-HUD_HEIGHT,480,HUD_HEIGHT);
+    //return CGRectMake(0,s.height-HUD_HEIGHT,s.width,HUD_HEIGHT);
+    return CGRectMake(0,s.height-innerBackgroundHeightOffset-HUD_HEIGHT,s.width-innerBackgroundWidthOffset,HUD_HEIGHT);
 }
 
 -(HUDItem *) getHUDItem:(CGPoint)p {
