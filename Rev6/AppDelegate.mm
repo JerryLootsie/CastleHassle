@@ -204,8 +204,26 @@
     [[Lootsie sharedInstance] setNotificationConfiguration:notify_to_rewardsPage];
     [[Lootsie sharedInstance] achievementReachedWithId:@"applaunch"];
     
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]
+        && [[UIScreen mainScreen] scale] == 2.0) {
+        // Retina
+        NSLog(@"AppDelegate: Retina detected");
+        
+        // alternative A: Disable Depth Test
+        [[CCDirector sharedDirector] setDepthTest:false];
+        
+        // alternative B: use 2D projection
+        [[CCDirector sharedDirector] setProjection:kCCDirectorProjection2D];
+        
+    } else {
+        // Not Retina
+        NSLog(@"AppDelegate: non-retina");
+    }
 
-	
+    float screenWidth = MAX([CCDirector sharedDirector].winSize.width, [CCDirector sharedDirector].winSize.height);
+    NSLog(@"AppDelegate: screenWidth: %f", screenWidth);
+    
+    
     // Run the intro Scene
     [[CCDirector sharedDirector] runWithScene:[MainMenu instance]];
     

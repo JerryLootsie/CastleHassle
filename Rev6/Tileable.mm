@@ -10,15 +10,31 @@
 
 @implementation Tileable
 
-@synthesize imageA, imageB, parallaxFactor;
+@synthesize imageA, imageB, imageC, parallaxFactor;
 
 
 - (float) getExtremeLeft {
-    return MIN(imageA.position.x, imageB.position.x);
+    
+    float screenWidth = MAX([CCDirector sharedDirector].winSize.width, [CCDirector sharedDirector].winSize.height);
+    
+    if (screenWidth > imageA.textureRect.size.width) {
+        float minTest = MIN(imageA.position.x, imageB.position.x);
+        return MIN(imageC.position.x, minTest);
+    } else {
+        return MIN(imageA.position.x, imageB.position.x);
+    }
 }
 
 - (float) getExtremeRight {
-    return MAX(imageA.position.x + imageA.textureRect.size.width, imageB.position.x + imageB.textureRect.size.width);
+    
+    float screenWidth = MAX([CCDirector sharedDirector].winSize.width, [CCDirector sharedDirector].winSize.height);
+    
+    if (screenWidth > imageA.textureRect.size.width) {
+        float maxTest = MAX(imageA.position.x + imageA.textureRect.size.width, imageB.position.x + imageB.textureRect.size.width);
+        return MAX(imageC.position.x + imageC.textureRect.size.width, maxTest);
+    } else {
+        return MAX(imageA.position.x + imageA.textureRect.size.width, imageB.position.x + imageB.textureRect.size.width);
+    }
 }
 
 - (CCSprite *) getUnseenSprite:(CGPoint)pos result:(int)res{
@@ -31,6 +47,8 @@
 
 - (int) cameraOutOfBounds:(CGPoint)pos {
 	
+    // ipad retina winsize: 1024,768
+    // iphone6 winsize: {480, 320}
     float screenWidth = MAX([CCDirector sharedDirector].winSize.width, [CCDirector sharedDirector].winSize.height);
     
 	// we calculate the left and right most points for the tiling images

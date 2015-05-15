@@ -22,6 +22,12 @@
 	float cameraXBeforeShot;
 	float gameTime;
     
+    // for retina size compatibility
+    CGSize s;
+    float innerBackgroundHeightOffset;
+    float innerBackgroundWidthOffset;
+    float scaleFactor;
+    
     @public
     BOOL touchDown;
 }

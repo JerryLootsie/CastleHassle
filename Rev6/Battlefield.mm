@@ -127,14 +127,19 @@ static Battlefield * instance = nil;
 		world->SetContinuousPhysics(true);
 		world->SetContactListener(new ContactListener);
 		
-        CGSize s = [[CCDirector sharedDirector] winSize];
+        s = [[CCDirector sharedDirector] winSize];
         NSLog(@"Battlefield: winSize: %@", NSStringFromCGSize(s));
         // ipad retina winsize: 1024,768
         // iphone6 winsize: {480, 320}
-        float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
-        float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
-        float scaleFactor = s.width/320.0;
+        innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+        innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+        scaleFactor = s.width/320.0;
         
+        // background is setup to only use 2 images, not 3!
+        // retina needs 3 images??
+        // backgrounds are 608x320
+        // how many tiles for retina? 1024/608 = 1.68 (so it needs to show on the right AND left!)
+        // how manhy tiles for iphone6? 480/608 = .7 (so it can show on the right or left)
 		Background * foreground = [[[Background alloc] initWithLeftImage:[gameSettings getBackgroundFileName:@"frontLeft.png"]
 															 rightImage:[gameSettings getBackgroundFileName:@"frontRight.png"]
 														 imageDimension:CGPointMake(607.0, 320.0)
@@ -559,6 +564,11 @@ static Battlefield * instance = nil;
 		
 		[t.imageA setPosition:CGPointMake(t.imageA.position.x - factor, t.imageA.position.y)];
 		[t.imageB setPosition:CGPointMake(t.imageB.position.x - factor, t.imageB.position.y)];
+        
+        // retina display
+        if (s.width > [t.imageA boundingBox].size.width) {
+            [t.imageC setPosition:CGPointMake(t.imageC.position.x - factor, t.imageC.position.y)];
+        }
 	}
 }
 
@@ -569,6 +579,11 @@ static Battlefield * instance = nil;
 		
 		[t.imageA setPosition:CGPointMake(loc.x-(t.imageA.textureRect.size.width/2)+1.0, t.imageA.position.y)];
 		[t.imageB setPosition:CGPointMake(loc.x+(t.imageB.textureRect.size.width/2), t.imageB.position.y)];
+        
+        // retina display
+        if (s.width > [t.imageA boundingBox].size.width) {
+            [t.imageC setPosition:CGPointMake(loc.x-(t.imageC.textureRect.size.width * 1.5), t.imageC.position.y)];
+        }
 	}
 }
 
@@ -848,13 +863,6 @@ static Battlefield * instance = nil;
 	
 	filename = [[NSBundle mainBundle] pathForResource:filename ofType:@"dat"];
 
-    CGSize s = [[CCDirector sharedDirector] winSize];
-    NSLog(@"Battlefield: winSize: %@", NSStringFromCGSize(s));
-    // ipad retina winsize: 1024,768
-    // iphone6 winsize: {480, 320}
-    float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
-    float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
-    float scaleFactor = s.width/320.0;
 
 	NSLog(@"Battlefield: loadForPlayer: attempting to open %@", filename);
 	

@@ -17,6 +17,7 @@
 @property (nonatomic) float parallaxFactor;
 @property (nonatomic, retain) CCSprite* imageA;
 @property (nonatomic, retain) CCSprite* imageB;
+@property (nonatomic, retain) CCSprite* imageC; // for large retina screens
 
 - (int) cameraOutOfBounds:(CGPoint)pos;
 - (void) positionForCameraLoc:(CGPoint)loc;
