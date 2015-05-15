@@ -54,12 +54,14 @@
 -(void) setPosition:(CGPoint)p {
     
     CGSize s = [[CCDirector sharedDirector] winSize];
-//    float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
-//    float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+    float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+    float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
     
 	//img.position = ccpAdd(ccp(240.0,160.0), p);
-    //img.position = ccpAdd(ccp(innerBackgroundWidthOffset + 240.0, innerBackgroundHeightOffset + 160.0), p);
-    img.position = ccpAdd(ccp(s.width/2,s.height/2), p);
+    img.position = ccpAdd(ccp(innerBackgroundWidthOffset + 240.0, innerBackgroundHeightOffset + 160.0), p);
+//    img.position = ccpAdd(ccp(s.width/2,s.height/2), p);
+//    img.position = ccpAdd(ccp(innerBackgroundWidthOffset,innerBackgroundHeightOffset), p);
+    
 //    img.position = p;
 	item.position = ccpAdd(p, ccp(0, yOffset));
 //    item.position = p;

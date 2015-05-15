@@ -25,12 +25,18 @@
 	
 	if((self=[super init])){
         
+        s = [[CCDirector sharedDirector] winSize];
+        innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+        innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+        scaleFactor = s.width/320.0;
+        
+        
         CCSprite* bg = sprite(@"background.jpg");
-        [bg setPosition:ccp(240, 160)];
+        [bg setPosition:ccp(innerBackgroundWidthOffset + 240, innerBackgroundHeightOffset + 160)];
         [self addChild:bg z:0];
     
 		CCSprite* navBack = sprite(@"menuBack.png");
-        [navBack setPosition:ccp(240, 160)];
+        [navBack setPosition:ccp(innerBackgroundWidthOffset + 240, innerBackgroundHeightOffset + 160)];
 		[self addChild:navBack z:0];	
 		
 		[self setTitle];
@@ -38,13 +44,13 @@
 		CCLabelTTF* gt = [CCLabelTTF labelWithString:@"Game Time:" fontName:@"Arial-BoldMT" fontSize:24];
 		[gt setAnchorPoint:ccp(0,.5)];
 		[gt setColor:ccc3(15, 147, 222)];
-		gt.position = ccp(40,150);
+		gt.position = ccp(innerBackgroundWidthOffset + 40, innerBackgroundHeightOffset + 150);
 		[self addChild:gt];
 		
 		CCLabelTTF* mode = [CCLabelTTF labelWithString:@"Mode:" fontName:@"Arial-BoldMT" fontSize:24];
 		[mode setAnchorPoint:ccp(0,.5)];
 		[mode setColor:ccc3(15, 147, 222)];
-		mode.position = ccp(40,110);
+		mode.position = ccp(innerBackgroundWidthOffset + 40, innerBackgroundHeightOffset + 110);
 		[self addChild:mode];
 		
 		[self setGameMode];
@@ -62,7 +68,7 @@
 -(void)setTitle {
 	CCLabelTTF* title = [CCLabelTTF labelWithString:@"Winner!" fontName:@"Arial-BoldMT" fontSize:64];
 	[title setColor:ccc3(15, 147, 222)];
-	title.position = ccp(240,265);
+	title.position = ccp(innerBackgroundWidthOffset + 240, innerBackgroundHeightOffset + 265);
 	[self addChild:title];
 }
 
@@ -75,7 +81,7 @@
 	CCLabelTTF* l = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%02i:%02i", min, sec] fontName:@"Arial-BoldMT" fontSize:24];
 	[l setAnchorPoint:ccp(0,.5)];
 	[l setColor:ccc3(15, 147, 222)];
-	l.position = ccp(250,150);
+	l.position = ccp(innerBackgroundWidthOffset + 250, innerBackgroundHeightOffset + 150);
 	[self addChild:l];
 }
 
@@ -99,7 +105,7 @@
 	CCLabelTTF* gt = [CCLabelTTF labelWithString:gtype fontName:@"Arial-BoldMT" fontSize:24];
 	[gt setColor:ccc3(15, 147, 222)];
 	[gt setAnchorPoint:ccp(0,.5)];
-	gt.position = ccp(250,110);
+	gt.position = ccp(innerBackgroundWidthOffset + 250, innerBackgroundHeightOffset + 110);
 	[self addChild:gt];
 }
 

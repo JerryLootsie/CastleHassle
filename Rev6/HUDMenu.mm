@@ -21,8 +21,21 @@
 
 -(id) init {
 	
+    
+    
 	if( (self=[super init]) ) {
-		extremeRight = ICON_SPACING;
+        
+        CGSize s = [[CCDirector sharedDirector] winSize];
+        NSLog(@"MainMenu: winSize: %@", NSStringFromCGSize(s));
+        // ipad retina winsize: 1024,768
+        // iphone6 winsize: {480, 320}
+        float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+        float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+        float scaleFactor = s.width/320.0;
+        
+        
+//		extremeRight = ICON_SPACING;
+        extremeRight = innerBackgroundWidthOffset + ICON_SPACING;
 
 		self.items = [NSMutableArray array];
 	}

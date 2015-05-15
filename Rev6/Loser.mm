@@ -16,7 +16,7 @@
 -(void)setTitle {
 	CCLabelTTF* title = [CCLabelTTF labelWithString:@"Defeat!" fontName:@"Arial-BoldMT" fontSize:64];
 	[title setColor:ccc3(15, 147, 222)];
-	title.position = ccp(240,265);
+	title.position = ccp(innerBackgroundWidthOffset + 240, innerBackgroundHeightOffset + 265);
 	[self addChild:title];
 }
 

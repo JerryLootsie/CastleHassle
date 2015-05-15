@@ -32,8 +32,13 @@ static H2Pscreen2 *instance = nil;
 	if ((self = [super init])) {
 		NSLog(@"H2Pscreen2 Init called");
 		
+        s = [[CCDirector sharedDirector] winSize];
+        innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+        innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+        scaleFactor = s.width/320.0;
+        
 		CCSprite *wall = [CCSprite spriteWithFile:@"screen2.png"];
-		[wall setPosition:ccp(240,160)];
+		[wall setPosition:ccp(innerBackgroundWidthOffset + 240, innerBackgroundHeightOffset + 160)];
 		[self addChild:wall z:0];
 		
 		

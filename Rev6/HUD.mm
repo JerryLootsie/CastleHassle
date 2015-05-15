@@ -310,14 +310,23 @@
 
 -(void) addBackButtonToMenu:(HUDMenu*)menu {
 	
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+    float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+    float scaleFactor = s.width/320.0;
+    
 	HUDItem * backButton = [menu addButtonItemWithImageName:@"stdButtons.png"
                                                    imageBox:CGRectMake(125, 39, 49, 35) 
                                               swingImageBox:CGRectMake(0, 0, 0, 0)
                                                    selector:@selector(showMainMenu) 
                                                       title:@""]; 
 	
-	backButton.leftBound = 480-BACK_BUTTON_SPACING_FROM_RIGHT-(backButton.img.textureRect.size.width/2);
-	backButton.rightBound = 480-BACK_BUTTON_SPACING_FROM_RIGHT+(backButton.img.textureRect.size.width/2);
+//	backButton.leftBound = 480-BACK_BUTTON_SPACING_FROM_RIGHT-(backButton.img.textureRect.size.width/2);
+//	backButton.rightBound = 480-BACK_BUTTON_SPACING_FROM_RIGHT+(backButton.img.textureRect.size.width/2);
+
+    backButton.leftBound = innerBackgroundWidthOffset + 480-BACK_BUTTON_SPACING_FROM_RIGHT-(backButton.img.textureRect.size.width/2);
+    backButton.rightBound = innerBackgroundWidthOffset + 480-BACK_BUTTON_SPACING_FROM_RIGHT+(backButton.img.textureRect.size.width/2);
+
 }
 
 -(void) showBuildMenu {

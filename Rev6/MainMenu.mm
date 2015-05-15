@@ -16,6 +16,9 @@
 #import "BackButtonLayer.h"
 #import "GameSettings.h"
 
+#import "Winner.h"
+#import "Loser.h"
+
 #import "Lootsie.h"
 
 @implementation MainMenu
@@ -149,7 +152,11 @@ static MainMenu * instance = nil;
 	NSLog(@"settings");
 	MainMenu* main = [MainMenu instance];
 	[main removeChild:self cleanup:YES];
-	[main addChild:[Settings node]];	
+
+    // simple overrides for testing
+    [main addChild:[Settings node]];
+    //[main addChild:[Winner node]];
+    //[main addChild:[Loser node]];
 }
 
 -(void)howToPlay: (id)sender {

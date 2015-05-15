@@ -12,7 +12,11 @@
 
 
 @interface H2Pscreen2 : BaseMenu {
-	
+    // fixes for retina
+    CGSize s;
+    float innerBackgroundHeightOffset;
+    float innerBackgroundWidthOffset;
+    float scaleFactor;
 }
 
 +(H2Pscreen2 *) instance;

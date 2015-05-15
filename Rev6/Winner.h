@@ -11,6 +11,12 @@
 #import "BaseMenu.h"
 
 @interface Winner : BaseMenu {
+    
+    // fixes for retina
+    CGSize s;
+    float innerBackgroundHeightOffset;
+    float innerBackgroundWidthOffset;
+    float scaleFactor;
 }
 
 -(void)homeScreen:(id)sender;

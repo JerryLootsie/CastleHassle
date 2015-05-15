@@ -22,13 +22,20 @@
 	if((self = [super init])) {
 		if (self != nil) {
 						
+            CGSize s = [[CCDirector sharedDirector] winSize];
+            NSLog(@"SettingsFromGame: winSize: %@", NSStringFromCGSize(s));
+            float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+            float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+            float scaleFactor = s.width/320.0;
+            
 			navBack = [CCSprite spriteWithFile:@"menuBack.png"];
-			navBack.position = ccp(480.0/2.0, 320.0/2.0);
+			//navBack.position = ccp(480.0/2.0, 320.0/2.0);
+            navBack.position = ccp(s.width/2.0, s.height/2.0);
 			[self addChild:navBack z:0];
 			
 			CCLabelTTF* title = [CCLabelTTF labelWithString:@"Settings" fontName:@"Arial-BoldMT" fontSize:24];
 			[title setColor:ccc3(15, 147, 222)];
-			title.position = ccp(240,280);
+			title.position = ccp(innerBackgroundWidthOffset + 240, innerBackgroundHeightOffset + 280);
 			[self addChild:title];
 			
 			[self makeButtonWithString:@"Return"
@@ -49,6 +56,13 @@
 }
 
 -(void) setupFollowShot {
+    
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+    float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+    float scaleFactor = s.width/320.0;
+
+    
 	followShot = [[CHToggle alloc] initWithImageName:@"comboButtons.png"];
 	
 	CHToggleItem* on = [[CHToggleItem alloc] initWithParent:followShot 
@@ -74,18 +88,26 @@
 	CCLabelTTF* followShotLabel = [CCLabelTTF labelWithString:@"Follow shot" fontName:@"Arial-BoldMT" fontSize:18];
 	[followShotLabel setColor:ccc3(15, 147, 222)];
 	[followShotLabel setAnchorPoint:ccp(0,.5)];
-	[followShotLabel setPosition:ccp(50,172)];
+	//[followShotLabel setPosition:ccp(50,172)];
+    [followShotLabel setPosition:ccp(innerBackgroundWidthOffset + 50, innerBackgroundHeightOffset + 172)];
 	[followShot selectItemAtIndex:([GameSettings instance].followShot?0:1)];
 	
 	[self addChild:followShotLabel];
 }
 
 -(void) setupSound {
+    
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+    float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+    float scaleFactor = s.width/320.0;
+    
 	CCLabelTTF* soundLabel = [CCLabelTTF labelWithString:@"Sound" fontName:@"Arial-BoldMT" fontSize:18];
 	
 	[soundLabel setColor:ccc3(15, 147, 222)];
 	[soundLabel setAnchorPoint:ccp(0,.5)];
-	soundLabel.position = ccp(50,222);
+//	soundLabel.position = ccp(50,222);
+    soundLabel.position =ccp(innerBackgroundWidthOffset + 50, innerBackgroundHeightOffset + 222);
 	[self addChild:soundLabel];
 	
 	soundState = [[CHToggle alloc] initWithImageName:@"comboButtons.png"];
@@ -95,7 +117,7 @@
 											  deselectedRect:CGRectMake(0,159,94,33) 
 												  buttonText:@"         On        "];
 	
-	[son setYOffset:5];
+	[son setYOffset:5*scaleFactor];
 	[soundState addItem:son];
 	[son release];
 	
@@ -104,12 +126,13 @@
 											   deselectedRect:CGRectMake(187,159,94,33)
 												   buttonText:@"        Off        "];
 	
-	[soff setYOffset:5];
+	[soff setYOffset:5*scaleFactor];
 	[soundState addItem:soff];
 	[soff release];
 	
 	[soundState selectItemAtIndex:([GameSettings instance].hasSound?0:1)];
 	[soundState setPosition:ccp(70,60)];
+    
 	[self addChild:soundState z:3];
 }
 

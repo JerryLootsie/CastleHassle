@@ -12,7 +12,11 @@
 
 
 @interface HowToPlay : BaseMenu {
-
+    // fixes for retina
+    CGSize s;
+    float innerBackgroundHeightOffset;
+    float innerBackgroundWidthOffset;
+    float scaleFactor;
 }
 
 +(HowToPlay *)instance;

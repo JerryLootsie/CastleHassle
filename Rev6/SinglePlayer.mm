@@ -32,7 +32,6 @@ static SinglePlayer* instance = nil;
 	if( (self=[super init])) {
 		
         CGSize s = [[CCDirector sharedDirector] winSize];
-        NSLog(@"MainMenu: winSize: %@", NSStringFromCGSize(s));
         // ipad retina winsize: 1024,768
         // iphone6 winsize: {480, 320}
         float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
@@ -66,14 +65,14 @@ static SinglePlayer* instance = nil;
         [easy setYOffset:5*scaleFactor];
 		[easy release];
 		
-//		CHToggleItem* medium = [[CHToggleItem alloc] initWithParent:difficulties 
-//													   selectedRect:CGRectMake(94, 121, 92, 36) 
-//													 deselectedRect:CGRectMake(94, 157, 92, 36) 
-//														 buttonText:@"     Medium"];
-        CHToggleItem* medium = [[CHToggleItem alloc] initWithParent:difficulties
-                                                       selectedRect:CGRectMake(0, 121, 92, 36)
-                                                     deselectedRect:CGRectMake(0, 157, 92, 36)
-                                                         buttonText:@"     Medium"];
+		CHToggleItem* medium = [[CHToggleItem alloc] initWithParent:difficulties 
+													   selectedRect:CGRectMake(94, 121, 92, 36) 
+													 deselectedRect:CGRectMake(94, 157, 92, 36) 
+														 buttonText:@"     Medium"];
+//        CHToggleItem* medium = [[CHToggleItem alloc] initWithParent:difficulties
+//                                                       selectedRect:CGRectMake(0, 121, 92, 36)
+//                                                     deselectedRect:CGRectMake(0, 157, 92, 36)
+//                                                         buttonText:@"     Medium"];
         
 		[difficulties addItem:medium];
 //		[medium setYOffset:5];
@@ -106,6 +105,8 @@ static SinglePlayer* instance = nil;
 													selectedRect:CGRectMake(0, 121, 94, 36) 
 												  deselectedRect:CGRectMake(0, 157, 94, 36) 
 													  buttonText:@"          1"];
+        //one.position = ccp(innerBackgroundWidthOffset, innerBackgroundHeightOffset + 121);
+        
 		[opponents addItem:one];
 		[one setYOffset:5*scaleFactor];
 		[one release];
@@ -114,6 +115,8 @@ static SinglePlayer* instance = nil;
 													selectedRect:CGRectMake(94, 121, 92, 36) 
 												  deselectedRect:CGRectMake(94, 157, 92, 36) 
 													  buttonText:@"          2"];
+        //two.position = ccp(innerBackgroundWidthOffset + 94, innerBackgroundHeightOffset + 121);
+        
 		[opponents addItem:two];
 		[two setYOffset:5*scaleFactor];
 		[two release];

@@ -27,16 +27,24 @@
 -(void)setPosition:(CGPoint)p {
 	position = p;
 	
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+    float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+    float scaleFactor = s.width/320.0;
+    
 	for (uint i=0; i<[items count]; ++i) {
 		int offset = 0;
 		
 		if(i) {
 			offset += ((CHToggleItem*)[items objectAtIndex:i-1]).img.textureRect.size.width/2;
-			offset += ((CHToggleItem*)[items objectAtIndex:i-1]).img.position.x;
+			offset += (((CHToggleItem*)[items objectAtIndex:i-1]).img.position.x - innerBackgroundWidthOffset);
 			offset += ((CHToggleItem*)[items objectAtIndex:i]).img.textureRect.size.width/2;
 			offset -= 240;
+            
+            NSLog(@"CHToggle: setPosition[%d]: %@", i, NSStringFromCGPoint(ccp(offset, p.y)));
 			[[items objectAtIndex:i] setPosition:ccp(offset, p.y)];
 		} else {
+            NSLog(@"CHToggle: setPosition[%d]: %@", i, NSStringFromCGPoint(p));
 			[[items objectAtIndex:i] setPosition:p];
 		}
 	}

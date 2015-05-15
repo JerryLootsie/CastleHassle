@@ -25,24 +25,32 @@ NSString* settingsFile = @"settings.plist";
 	
 	if((self = [super init])){
     
+        CGSize s = [[CCDirector sharedDirector] winSize];
+        // ipad retina winsize: 1024,768
+        // iphone6 winsize: {480, 320}
+        float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+        float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+        float scaleFactor = s.width/320.0;
+
+        
         CCSprite* bg = sprite(@"background.jpg");
-        [bg setPosition:ccp(240, 160)];
+        [bg setPosition:ccp(innerBackgroundWidthOffset + 240, innerBackgroundHeightOffset + 160)];
         [self addChild:bg z:0];
     
 		CCSprite* navBack = sprite(@"menuBack.png");
-        [navBack setPosition:ccp(240, 160)];
+        [navBack setPosition:ccp(innerBackgroundWidthOffset + 240, innerBackgroundHeightOffset + 160)];
 		[self addChild:navBack z:0];	
         
 		
 		CCLabelTTF* title = [CCLabelTTF labelWithString:@"Settings" fontName:@"Arial-BoldMT" fontSize:24];
 		[title setColor:ccc3(15, 147, 222)];
-		title.position = ccp(240,280);
+		title.position = ccp(innerBackgroundWidthOffset + 240, innerBackgroundHeightOffset + 280);
 		[self addChild:title];
 				
 		CCLabelTTF* soundLabel = [CCLabelTTF labelWithString:@"Sound" fontName:@"Arial-BoldMT" fontSize:18];
         [soundLabel setAnchorPoint:ccp(0,.5)];
 		[soundLabel setColor:ccc3(15, 147, 222)];
-		soundLabel.position = ccp(50,202);
+		soundLabel.position = ccp(innerBackgroundWidthOffset + 50, innerBackgroundHeightOffset + 202);
 		[self addChild:soundLabel];
 		
 		//Sound On/Off Graphics		
@@ -90,6 +98,14 @@ NSString* settingsFile = @"settings.plist";
 }
 
 -(void) setupFollowShot {
+    
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    // ipad retina winsize: 1024,768
+    // iphone6 winsize: {480, 320}
+    float innerBackgroundHeightOffset = (s.height/2) - (320.0/2.0);
+    float innerBackgroundWidthOffset = (s.width/2) - (480.0/2.0);
+    float scaleFactor = s.width/320.0;
+    
 	followShot = [[CHToggle alloc] initWithImageName:@"comboButtons.png"];
 	
 	CHToggleItem* on = [[CHToggleItem alloc] initWithParent:followShot 
@@ -115,7 +131,7 @@ NSString* settingsFile = @"settings.plist";
 	CCLabelTTF* followShotLabel = [CCLabelTTF labelWithString:@"Follow shot" fontName:@"Arial-BoldMT" fontSize:18];
 	[followShotLabel setColor:ccc3(15, 147, 222)];
 	[followShotLabel setAnchorPoint:ccp(0,.5)];
-	[followShotLabel setPosition:ccp(50,142)];
+	[followShotLabel setPosition:ccp(innerBackgroundWidthOffset + 50, innerBackgroundHeightOffset + 142)];
 	[followShot selectItemAtIndex:[GameSettings instance].followShot?0:1];
 	
 	[self addChild:followShotLabel];
