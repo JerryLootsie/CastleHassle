@@ -50,6 +50,63 @@ typedef void(^CompletionCallback)(BOOL finished);
 @end
 
 
+// see also Net/GetUserAccount/GetUserAccountResponse.h
+// we want to avoid forcing the developer to have to include restkit header files because of conflicts
+@interface LootsieUserAccount : NSObject
+
+@property (nonatomic, strong) NSString* photo_url;
+@property (nonatomic) NSInteger total_lp;
+@property (nonatomic) NSInteger zipcode;
+@property (nonatomic) Boolean accepted_tos;
+@property (nonatomic) NSArray* interest_groups;
+@property (nonatomic, strong) NSString* address;
+@property (nonatomic, strong) NSString* gender;
+@property (nonatomic) Boolean lootsie_optin;
+@property (nonatomic) NSInteger confirmed_age;
+@property (nonatomic, strong) NSString* email;
+@property (nonatomic) NSInteger home_zipcode;
+@property (nonatomic, strong) NSString* state;
+@property (nonatomic, strong) NSString* last_name;
+@property (nonatomic, strong) NSString* first_name;
+@property (nonatomic) Boolean is_guest;
+@property (nonatomic, strong) NSString* birthdate;
+@property (nonatomic) Boolean partner_optin;
+@property (nonatomic, strong) NSString* city;
+
+@end
+
+// see also Net/GetApp/ImageURLsResponse.h
+// we want to avoid forcing the developer to have to include restkit header files because of conflicts
+@interface LootsieImageURLs : NSObject
+
+@property (nonatomic, strong) NSString* DETAIL;
+@property (nonatomic, strong) NSString* L;
+@property (nonatomic, strong) NSString* M;
+@property (nonatomic, strong) NSString* S;
+@property (nonatomic, strong) NSString* XL;
+
+@end
+
+// see also Net/GetUserReward/GetUserRewardResponse.h RewardResponse.h
+// we want to avoid forcing the developer to have to include restkit header files because of conflicts
+@interface LootsieReward : NSObject
+
+@property (nonatomic, strong) NSString* brand_name;
+@property (nonatomic, strong) NSString* reward_description; // description
+@property (nonatomic, strong) NSString* reward_id; // id
+@property (nonatomic) NSArray* engagements; // EngagementsResponse
+@property (nonatomic) LootsieImageURLs* image_urls;
+@property (nonatomic) NSInteger is_limited_time;
+@property (nonatomic) NSInteger is_new;
+@property (nonatomic) NSInteger lp;
+@property (nonatomic, strong) NSString* name;
+@property (nonatomic) NSInteger redemptions_remaining;
+@property (nonatomic, strong) NSString* text_to_share;
+@property (nonatomic, strong) NSString* tos_text;
+@property (nonatomic, strong) NSString* tos_url;
+
+@end
+
 @interface Lootsie : NSObject {
 @public
     UIViewController* (^getControllerBlock)(void);
@@ -71,6 +128,7 @@ typedef void(^CompletionCallback)(BOOL finished);
 
 - (BOOL) getUserAchievements:(ServiceCallback) callback;
 - (BOOL) getUserRewards:(ServiceCallback) callback;
+- (LootsieUserAccount*) getUserAccount;
 
 - (void) redeemReward:(NSString*) rewardId email:(NSString*) email callback:(ServiceCallback) callback;
 
