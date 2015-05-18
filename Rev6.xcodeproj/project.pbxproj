@@ -486,6 +486,9 @@
 		02F59C1714BDD14800C9349A /* DestroyedPieceAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02F59C1114BDD14800C9349A /* DestroyedPieceAnimation.mm */; };
 		52E8F4F61AF437F40081BF36 /* LootsieSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52E8F4F51AF437F40081BF36 /* LootsieSDKResources.bundle */; };
 		52F4AC411B0A99290023CE71 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02F5978014BDCB3F00C9349A /* Info.plist */; };
+		52F4AC471B0AA48A0023CE71 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F4AC441B0AA48A0023CE71 /* Icon-76.png */; };
+		52F4AC481B0AA48A0023CE71 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F4AC451B0AA48A0023CE71 /* Icon-120.png */; };
+		52F4AC491B0AA48A0023CE71 /* Icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F4AC461B0AA48A0023CE71 /* Icon-152.png */; };
 		52F833A01AF43ABE002F9F36 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F8339F1AF43ABE002F9F36 /* Security.framework */; };
 		52F833A21AF43ACD002F9F36 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F833A11AF43ACD002F9F36 /* SystemConfiguration.framework */; };
 		52F833A41AF43AD8002F9F36 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F833A31AF43AD8002F9F36 /* MobileCoreServices.framework */; };
@@ -1196,6 +1199,9 @@
 		02F59C1114BDD14800C9349A /* DestroyedPieceAnimation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DestroyedPieceAnimation.mm; sourceTree = "<group>"; };
 		52E8F4F51AF437F40081BF36 /* LootsieSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = LootsieSDKResources.bundle; path = Lootsie/LootsieSDKResources.bundle; sourceTree = "<group>"; };
 		52E8F4FB1AF438B50081BF36 /* Lootsie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lootsie.h; sourceTree = "<group>"; };
+		52F4AC441B0AA48A0023CE71 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
+		52F4AC451B0AA48A0023CE71 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
+		52F4AC461B0AA48A0023CE71 /* Icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-152.png"; sourceTree = "<group>"; };
 		52F8339F1AF43ABE002F9F36 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		52F833A11AF43ACD002F9F36 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		52F833A31AF43AD8002F9F36 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -1427,6 +1433,9 @@
 		02F5976E14BDCB3F00C9349A /* Rev6 */ = {
 			isa = PBXGroup;
 			children = (
+				52F4AC441B0AA48A0023CE71 /* Icon-76.png */,
+				52F4AC451B0AA48A0023CE71 /* Icon-120.png */,
+				52F4AC461B0AA48A0023CE71 /* Icon-152.png */,
 				0239A41B14C0B0D800B7AD45 /* Icon.png */,
 				0239A41C14C0B0D800B7AD45 /* Icon@2x.png */,
 				0239A41D14C0B0D800B7AD45 /* IconLarge.png */,
@@ -2492,6 +2501,7 @@
 				02F5996414BDCBE700C9349A /* campaign10.dat in Resources */,
 				02F5996514BDCBE700C9349A /* campaign11.dat in Resources */,
 				02F5996614BDCBE700C9349A /* campaign12.dat in Resources */,
+				52F4AC491B0AA48A0023CE71 /* Icon-152.png in Resources */,
 				02F5996714BDCBE700C9349A /* campaign13.dat in Resources */,
 				02F5996814BDCBE700C9349A /* campaign14.dat in Resources */,
 				02F5996914BDCBE700C9349A /* campaign15.dat in Resources */,
@@ -2652,6 +2662,7 @@
 				02F59B1314BDCD4200C9349A /* mapBase.png in Resources */,
 				02F59B1614BDCD4200C9349A /* 10sb.png in Resources */,
 				02F59B1814BDCD4200C9349A /* 11sb.png in Resources */,
+				52F4AC481B0AA48A0023CE71 /* Icon-120.png in Resources */,
 				02F59B1A14BDCD4200C9349A /* 12sb.png in Resources */,
 				02F59B1C14BDCD4200C9349A /* 13sb.png in Resources */,
 				02F59B1E14BDCD4200C9349A /* 14sb.png in Resources */,
@@ -2732,6 +2743,7 @@
 				02F59BC014BDCDE700C9349A /* hud.png in Resources */,
 				02F59BC114BDCDE700C9349A /* hudDivider.png in Resources */,
 				02F59BC214BDCDE700C9349A /* logo.png in Resources */,
+				52F4AC471B0AA48A0023CE71 /* Icon-76.png in Resources */,
 				02F59BC314BDCDE700C9349A /* menuBack.png in Resources */,
 				02F59BC414BDCDE700C9349A /* popLink.png in Resources */,
 				02F59BC514BDCDE700C9349A /* selected.png in Resources */,
