@@ -20,7 +20,7 @@
 		<string>Icon-Small@2x.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.lootsie.$(PRODUCT_NAME:rfc1034identifier)</string>
+	<string>com.lootsie.demos.LootsieCastleHassle</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -44,6 +44,8 @@
 	</dict>
 	<key>UIStatusBarHidden</key>
 	<true/>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>

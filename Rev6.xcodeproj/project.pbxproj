@@ -485,6 +485,7 @@
 		02F59C1614BDD14800C9349A /* CannonBallTrail.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02F59C0F14BDD14800C9349A /* CannonBallTrail.mm */; };
 		02F59C1714BDD14800C9349A /* DestroyedPieceAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02F59C1114BDD14800C9349A /* DestroyedPieceAnimation.mm */; };
 		52E8F4F61AF437F40081BF36 /* LootsieSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52E8F4F51AF437F40081BF36 /* LootsieSDKResources.bundle */; };
+		52F4AC411B0A99290023CE71 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02F5978014BDCB3F00C9349A /* Info.plist */; };
 		52F833A01AF43ABE002F9F36 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F8339F1AF43ABE002F9F36 /* Security.framework */; };
 		52F833A21AF43ACD002F9F36 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F833A11AF43ACD002F9F36 /* SystemConfiguration.framework */; };
 		52F833A41AF43AD8002F9F36 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F833A31AF43AD8002F9F36 /* MobileCoreServices.framework */; };
@@ -594,7 +595,7 @@
 		02C3C77414BDD6B2004BCC33 /* TVMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVMacros.h; sourceTree = "<group>"; };
 		02C3C77514BDF532004BCC33 /* Battlefield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Battlefield.h; sourceTree = "<group>"; };
 		02C3C77614BDF535004BCC33 /* Battlefield.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Battlefield.mm; sourceTree = "<group>"; };
-		02F5975A14BDCB3F00C9349A /* ch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		02F5975A14BDCB3F00C9349A /* LootsieCastleHassle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LootsieCastleHassle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F5975E14BDCB3F00C9349A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		02F5976014BDCB3F00C9349A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		02F5976214BDCB3F00C9349A /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -1399,7 +1400,7 @@
 		02F5975B14BDCB3F00C9349A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				02F5975A14BDCB3F00C9349A /* ch.app */,
+				02F5975A14BDCB3F00C9349A /* LootsieCastleHassle.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2430,9 +2431,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		02F5975914BDCB3F00C9349A /* ch */ = {
+		02F5975914BDCB3F00C9349A /* LootsieCastleHassle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 02F5994414BDCB4100C9349A /* Build configuration list for PBXNativeTarget "ch" */;
+			buildConfigurationList = 02F5994414BDCB4100C9349A /* Build configuration list for PBXNativeTarget "LootsieCastleHassle" */;
 			buildPhases = (
 				02F5975614BDCB3F00C9349A /* Sources */,
 				02F5975714BDCB3F00C9349A /* Frameworks */,
@@ -2442,9 +2443,9 @@
 			);
 			dependencies = (
 			);
-			name = ch;
+			name = LootsieCastleHassle;
 			productName = Rev6;
-			productReference = 02F5975A14BDCB3F00C9349A /* ch.app */;
+			productReference = 02F5975A14BDCB3F00C9349A /* LootsieCastleHassle.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2473,7 +2474,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				02F5975914BDCB3F00C9349A /* ch */,
+				02F5975914BDCB3F00C9349A /* LootsieCastleHassle */,
 			);
 		};
 /* End PBXProject section */
@@ -2595,6 +2596,7 @@
 				02F59A7D14BDCD2400C9349A /* timer_00011.png in Resources */,
 				02F59A7E14BDCD2400C9349A /* timer_00012.png in Resources */,
 				02F59A7F14BDCD2400C9349A /* timer_00013.png in Resources */,
+				52F4AC411B0A99290023CE71 /* Info.plist in Resources */,
 				02F59A8014BDCD2400C9349A /* timer_00014.png in Resources */,
 				02F59A8114BDCD2400C9349A /* timer_00015.png in Resources */,
 				02F59A8214BDCD2400C9349A /* timer_00016.png in Resources */,
@@ -3087,7 +3089,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		02F5994414BDCB4100C9349A /* Build configuration list for PBXNativeTarget "ch" */ = {
+		02F5994414BDCB4100C9349A /* Build configuration list for PBXNativeTarget "LootsieCastleHassle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				02F5994514BDCB4100C9349A /* Debug */,
