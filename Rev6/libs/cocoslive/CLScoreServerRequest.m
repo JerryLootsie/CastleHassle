@@ -77,9 +77,11 @@
 	reqRankOnly = NO;
 	
 	NSString *device = @"";
-	if( flags & kQueryFlagByDevice )
-		device = [[UIDevice currentDevice] uniqueIdentifier];
-	
+    if( flags & kQueryFlagByDevice ) {
+        // Lootsie: disable uniqueidentifier usage!
+		//device = [[UIDevice currentDevice] uniqueIdentifier];
+        
+    }
 	// arguments:
 	//  query: type of query
 	//  limit: how many scores are being requested. Default is 25. Maximun is 100
