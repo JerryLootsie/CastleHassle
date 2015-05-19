@@ -489,6 +489,8 @@
 		52F4AC471B0AA48A0023CE71 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F4AC441B0AA48A0023CE71 /* Icon-76.png */; };
 		52F4AC481B0AA48A0023CE71 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F4AC451B0AA48A0023CE71 /* Icon-120.png */; };
 		52F4AC491B0AA48A0023CE71 /* Icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F4AC461B0AA48A0023CE71 /* Icon-152.png */; };
+		52F4AC4C1B0AAA820023CE71 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F4AC4A1B0AAA820023CE71 /* Default-568h@2x.png */; };
+		52F4AC4D1B0AAA820023CE71 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F4AC4B1B0AAA820023CE71 /* Default@2x.png */; };
 		52F833A01AF43ABE002F9F36 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F8339F1AF43ABE002F9F36 /* Security.framework */; };
 		52F833A21AF43ACD002F9F36 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F833A11AF43ACD002F9F36 /* SystemConfiguration.framework */; };
 		52F833A41AF43AD8002F9F36 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F833A31AF43AD8002F9F36 /* MobileCoreServices.framework */; };
@@ -1202,6 +1204,8 @@
 		52F4AC441B0AA48A0023CE71 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
 		52F4AC451B0AA48A0023CE71 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		52F4AC461B0AA48A0023CE71 /* Icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-152.png"; sourceTree = "<group>"; };
+		52F4AC4A1B0AAA820023CE71 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		52F4AC4B1B0AAA820023CE71 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		52F8339F1AF43ABE002F9F36 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		52F833A11AF43ACD002F9F36 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		52F833A31AF43AD8002F9F36 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -1454,6 +1458,8 @@
 		02F5976F14BDCB3F00C9349A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				52F4AC4A1B0AAA820023CE71 /* Default-568h@2x.png */,
+				52F4AC4B1B0AAA820023CE71 /* Default@2x.png */,
 				02F5999614BDCC3800C9349A /* Images */,
 				02F5994C14BDCBCC00C9349A /* Saves */,
 				02F59B6814BDCD6D00C9349A /* Sounds */,
@@ -2510,6 +2516,7 @@
 				02F5996C14BDCBE700C9349A /* campaign18.dat in Resources */,
 				02F5996D14BDCBE700C9349A /* campaign19.dat in Resources */,
 				02F5996E14BDCBE700C9349A /* campaign2.dat in Resources */,
+				52F4AC4C1B0AAA820023CE71 /* Default-568h@2x.png in Resources */,
 				02F5996F14BDCBE700C9349A /* campaign20.dat in Resources */,
 				02F5997014BDCBE700C9349A /* campaign21.dat in Resources */,
 				02F5997114BDCBE700C9349A /* campaign3.dat in Resources */,
@@ -2609,6 +2616,7 @@
 				52F4AC411B0A99290023CE71 /* Info.plist in Resources */,
 				02F59A8014BDCD2400C9349A /* timer_00014.png in Resources */,
 				02F59A8114BDCD2400C9349A /* timer_00015.png in Resources */,
+				52F4AC4D1B0AAA820023CE71 /* Default@2x.png in Resources */,
 				02F59A8214BDCD2400C9349A /* timer_00016.png in Resources */,
 				02F59A8314BDCD2400C9349A /* timer_00017.png in Resources */,
 				02F59A8414BDCD2400C9349A /* timer_00018.png in Resources */,
