@@ -484,7 +484,39 @@
 		02F59C1514BDD14800C9349A /* CannonBallExplosion.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02F59C0D14BDD14800C9349A /* CannonBallExplosion.mm */; };
 		02F59C1614BDD14800C9349A /* CannonBallTrail.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02F59C0F14BDD14800C9349A /* CannonBallTrail.mm */; };
 		02F59C1714BDD14800C9349A /* DestroyedPieceAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02F59C1114BDD14800C9349A /* DestroyedPieceAnimation.mm */; };
+		DC47FE321B17D2020085E9EA /* libLootsie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC47FE2D1B17D12D0085E9EA /* libLootsie.a */; };
+		DC47FE341B17D2020085E9EA /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC47FE331B17D2020085E9EA /* libRestKit.a */; };
+		DC47FE351B17D20E0085E9EA /* LootsieSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DC47FE311B17D12D0085E9EA /* LootsieSDKResources.bundle */; };
+		DC47FE371B17D4DD0085E9EA /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC47FE361B17D4DD0085E9EA /* CoreText.framework */; };
+		DC47FE391B17D7510085E9EA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC47FE381B17D7510085E9EA /* SystemConfiguration.framework */; };
+		DC47FE3B1B17D7B50085E9EA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC47FE3A1B17D7B50085E9EA /* MobileCoreServices.framework */; };
+		DC47FE401B17D8420085E9EA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC47FE3C1B17D7CD0085E9EA /* Security.framework */; };
+		DC47FE411B17D8470085E9EA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC47FE3E1B17D7D20085E9EA /* CFNetwork.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DC47FE2C1B17D12D0085E9EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC47FE251B17D12D0085E9EA /* Lootsie.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5271633C1AB0B3A600B6E8DE;
+			remoteInfo = Lootsie;
+		};
+		DC47FE2E1B17D12D0085E9EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC47FE251B17D12D0085E9EA /* Lootsie.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 527163471AB0B3A600B6E8DE;
+			remoteInfo = LootsieTests;
+		};
+		DC47FE301B17D12D0085E9EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC47FE251B17D12D0085E9EA /* Lootsie.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 52BF11351AD3167300E7D7B2;
+			remoteInfo = LootsieSDKResources;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0239A41614C0ADD300B7AD45 /* blackWall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackWall.png; sourceTree = "<group>"; };
@@ -1189,6 +1221,13 @@
 		02F59C0F14BDD14800C9349A /* CannonBallTrail.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CannonBallTrail.mm; sourceTree = "<group>"; };
 		02F59C1014BDD14800C9349A /* DestroyedPieceAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestroyedPieceAnimation.h; sourceTree = "<group>"; };
 		02F59C1114BDD14800C9349A /* DestroyedPieceAnimation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DestroyedPieceAnimation.mm; sourceTree = "<group>"; };
+		DC47FE251B17D12D0085E9EA /* Lootsie.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lootsie.xcodeproj; path = "ios-sdk4/Lootsie/Lootsie.xcodeproj"; sourceTree = "<group>"; };
+		DC47FE331B17D2020085E9EA /* libRestKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRestKit.a; path = "../../../Library/Developer/Xcode/DerivedData/Rev6-ekffcmnzjfucbybowpvrwqgaplxk/Build/Products/Debug-iphoneos/libRestKit.a"; sourceTree = "<group>"; };
+		DC47FE361B17D4DD0085E9EA /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		DC47FE381B17D7510085E9EA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		DC47FE3A1B17D7B50085E9EA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		DC47FE3C1B17D7CD0085E9EA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		DC47FE3E1B17D7D20085E9EA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1196,6 +1235,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC47FE341B17D2020085E9EA /* libRestKit.a in Frameworks */,
+				DC47FE321B17D2020085E9EA /* libLootsie.a in Frameworks */,
+				DC47FE411B17D8470085E9EA /* CFNetwork.framework in Frameworks */,
+				DC47FE401B17D8420085E9EA /* Security.framework in Frameworks */,
+				DC47FE3B1B17D7B50085E9EA /* MobileCoreServices.framework in Frameworks */,
+				DC47FE391B17D7510085E9EA /* SystemConfiguration.framework in Frameworks */,
+				DC47FE371B17D4DD0085E9EA /* CoreText.framework in Frameworks */,
 				02A0C4E214BEC68D00B739E3 /* StoreKit.framework in Frameworks */,
 				02F5975F14BDCB3F00C9349A /* QuartzCore.framework in Frameworks */,
 				02F5976114BDCB3F00C9349A /* OpenGLES.framework in Frameworks */,
@@ -1378,6 +1424,7 @@
 		02F5974F14BDCB3E00C9349A = {
 			isa = PBXGroup;
 			children = (
+				DC47FE251B17D12D0085E9EA /* Lootsie.xcodeproj */,
 				02F5976E14BDCB3F00C9349A /* Rev6 */,
 				02F5975D14BDCB3F00C9349A /* Frameworks */,
 				02F5975B14BDCB3F00C9349A /* Products */,
@@ -1395,6 +1442,12 @@
 		02F5975D14BDCB3F00C9349A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC47FE3E1B17D7D20085E9EA /* CFNetwork.framework */,
+				DC47FE3C1B17D7CD0085E9EA /* Security.framework */,
+				DC47FE3A1B17D7B50085E9EA /* MobileCoreServices.framework */,
+				DC47FE381B17D7510085E9EA /* SystemConfiguration.framework */,
+				DC47FE361B17D4DD0085E9EA /* CoreText.framework */,
+				DC47FE331B17D2020085E9EA /* libRestKit.a */,
 				02A0C4E114BEC68D00B739E3 /* StoreKit.framework */,
 				02F5975E14BDCB3F00C9349A /* QuartzCore.framework */,
 				02F5976014BDCB3F00C9349A /* OpenGLES.framework */,
@@ -2377,6 +2430,16 @@
 			name = Particles;
 			sourceTree = "<group>";
 		};
+		DC47FE261B17D12D0085E9EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC47FE2D1B17D12D0085E9EA /* libLootsie.a */,
+				DC47FE2F1B17D12D0085E9EA /* LootsieTests.xctest */,
+				DC47FE311B17D12D0085E9EA /* LootsieSDKResources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2421,6 +2484,12 @@
 			mainGroup = 02F5974F14BDCB3E00C9349A;
 			productRefGroup = 02F5975B14BDCB3F00C9349A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DC47FE261B17D12D0085E9EA /* Products */;
+					ProjectRef = DC47FE251B17D12D0085E9EA /* Lootsie.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				02F5975914BDCB3F00C9349A /* ch */,
@@ -2428,11 +2497,36 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		DC47FE2D1B17D12D0085E9EA /* libLootsie.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libLootsie.a;
+			remoteRef = DC47FE2C1B17D12D0085E9EA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DC47FE2F1B17D12D0085E9EA /* LootsieTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = LootsieTests.xctest;
+			remoteRef = DC47FE2E1B17D12D0085E9EA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DC47FE311B17D12D0085E9EA /* LootsieSDKResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = LootsieSDKResources.bundle;
+			remoteRef = DC47FE301B17D12D0085E9EA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		02F5975814BDCB3F00C9349A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC47FE351B17D20E0085E9EA /* LootsieSDKResources.bundle in Resources */,
 				02F5977314BDCB3F00C9349A /* fps_images.png in Resources */,
 				02F5978214BDCB3F00C9349A /* iTunesArtwork in Resources */,
 				02F5994114BDCB4100C9349A /* blocks.png in Resources */,
@@ -2932,7 +3026,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2941,17 +3035,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: ITV LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Matthew Wood";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "944F265C-F6F9-4035-ADB4-58FBF9658133";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4E6B2A9E-DFA3-4E9E-9DCC-31F05E56A397";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -2970,9 +3061,18 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = Rev6/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "-lz";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Rev6-ekffcmnzjfucbybowpvrwqgaplxk/Build/Products/Debug-iphoneos",
+				);
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "\"Rev6/libs\"";
+				USER_HEADER_SEARCH_PATHS = "\"Rev6/libs\" $(BUILT_PRODUCTS_DIR)/** \"$(BUILT_PRODUCTS_DIR)/../../Headers\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2990,9 +3090,18 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = Rev6/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "-lz";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Rev6-ekffcmnzjfucbybowpvrwqgaplxk/Build/Products/Debug-iphoneos",
+				);
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "\"Rev6/libs\"";
+				USER_HEADER_SEARCH_PATHS = "\"Rev6/libs\" $(BUILT_PRODUCTS_DIR)/** \"$(BUILT_PRODUCTS_DIR)/../../Headers\"/**";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

@@ -15,6 +15,7 @@
 #import "Credits.h"
 #import "BackButtonLayer.h"
 #import "GameSettings.h"
+#import "Lootsie.h"
 
 @implementation MainMenu
 
@@ -97,6 +98,10 @@ static MainMenu * instance = nil;
 		[self makeButtonWithString:@"How-to-play"
 						atPosition:ccp(70,-75) 
 					withSelector:@selector(howToPlay:)];
+
+		[self makeButtonWithString:@"Lootsie"
+						atPosition:ccp(0, -20)
+					  withSelector:@selector(showLootsieRewards:)];
                     
         
 	}
@@ -138,6 +143,10 @@ static MainMenu * instance = nil;
 	MainMenu* main = [MainMenu instance];
 	[main removeChild:self cleanup:YES];
 	[main addChild:[Credits node]];
+}
+
+- (void)showLootsieRewards: (id)sender {
+	[[Lootsie sharedInstance] showRewardsPage];
 }
 
 

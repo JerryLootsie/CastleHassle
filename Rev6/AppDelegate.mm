@@ -12,6 +12,11 @@
 #import "GameConfig.h"
 #import "RootViewController.h"
 #import "MainMenu.h"
+#import "Lootsie.h"
+
+@interface AppDelegate () <LootsieDelegate>
+
+@end
 
 @implementation AppDelegate
 
@@ -125,6 +130,31 @@
 	
 	// Run the intro Scene
 	[[CCDirector sharedDirector] runWithScene:[MainMenu instance]];
+
+	ServiceCallback initCallback = ^(BOOL success, id result, NSString* error, NSInteger statusCode) {
+		if (success) {
+			NSLog(@"AppDelegate: Lootsie initialized with success");
+		} else {
+			NSLog(@"AppDelegate: Lootsie failed to initialize, error: %@", error);
+		}
+	};
+
+	NSString *appKey = @"65356DA3B2AE759182C8ACB278CB7DF6666C45ED6A5CDDA7267EFC214E8F3F31";
+
+	[[Lootsie sharedInstance] initWithAppKeyCallback:appKey callback:initCallback];
+
+
+
+	// Start-up Achievement
+	ServiceCallback achievementReachedCallback = ^(BOOL success, id result, NSString* errorMessage, NSInteger statusCode) {
+		if (success) {
+			NSLog(@"AppDelegate: Lootsie Achievement Reached!");
+		} else {
+			NSLog(@"AppDelegate: Lootsie Achievement Reached Failed with error: %@", errorMessage);
+		}
+	};
+
+	[[Lootsie sharedInstance] achievementReachedWithIdLocationCallback:@"applaunch" location:@"default" callback:achievementReachedCallback];
 }
 
 
@@ -173,6 +203,14 @@
 	[[CCDirector sharedDirector] end];
 	[window release];
 	[super dealloc];
+}
+
+- (void)achievementReachedBarExpanded {
+	[[CCDirector sharedDirector] pause];
+}
+
+- (void)achievementReachedBarClosed {
+	[[CCDirector sharedDirector] resume];
 }
 
 @end
