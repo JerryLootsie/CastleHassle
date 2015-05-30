@@ -1,0 +1,3 @@
+[submodule "ios-sdk4"]
+	path = ios-sdk4
+	url = git@bitbucket.org:LootsieIOS/ios-sdk4.git
