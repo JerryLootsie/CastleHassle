@@ -484,7 +484,9 @@
 		02F59C1514BDD14800C9349A /* CannonBallExplosion.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02F59C0D14BDD14800C9349A /* CannonBallExplosion.mm */; };
 		02F59C1614BDD14800C9349A /* CannonBallTrail.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02F59C0F14BDD14800C9349A /* CannonBallTrail.mm */; };
 		02F59C1714BDD14800C9349A /* DestroyedPieceAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02F59C1114BDD14800C9349A /* DestroyedPieceAnimation.mm */; };
-		52E8F4F61AF437F40081BF36 /* LootsieSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52E8F4F51AF437F40081BF36 /* LootsieSDKResources.bundle */; };
+		52CDE4A91B2A06B9001E7601 /* libLootsie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CDE4A61B2A06B9001E7601 /* libLootsie.a */; };
+		52CDE4AA1B2A06B9001E7601 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CDE4A71B2A06B9001E7601 /* libRestKit.a */; };
+		52CDE4AB1B2A06B9001E7601 /* LootsieSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52CDE4A81B2A06B9001E7601 /* LootsieSDKResources.bundle */; };
 		52F4AC411B0A99290023CE71 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02F5978014BDCB3F00C9349A /* Info.plist */; };
 		52F4AC471B0AA48A0023CE71 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F4AC441B0AA48A0023CE71 /* Icon-76.png */; };
 		52F4AC481B0AA48A0023CE71 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F4AC451B0AA48A0023CE71 /* Icon-120.png */; };
@@ -1199,8 +1201,10 @@
 		02F59C0F14BDD14800C9349A /* CannonBallTrail.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CannonBallTrail.mm; sourceTree = "<group>"; };
 		02F59C1014BDD14800C9349A /* DestroyedPieceAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestroyedPieceAnimation.h; sourceTree = "<group>"; };
 		02F59C1114BDD14800C9349A /* DestroyedPieceAnimation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DestroyedPieceAnimation.mm; sourceTree = "<group>"; };
-		52E8F4F51AF437F40081BF36 /* LootsieSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = LootsieSDKResources.bundle; path = Lootsie/LootsieSDKResources.bundle; sourceTree = "<group>"; };
-		52E8F4FB1AF438B50081BF36 /* Lootsie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lootsie.h; sourceTree = "<group>"; };
+		52CDE4A61B2A06B9001E7601 /* libLootsie.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLootsie.a; path = "Lootsie/Debug-iphoneos/libLootsie.a"; sourceTree = "<group>"; };
+		52CDE4A71B2A06B9001E7601 /* libRestKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRestKit.a; path = "Lootsie/Debug-iphoneos/libRestKit.a"; sourceTree = "<group>"; };
+		52CDE4A81B2A06B9001E7601 /* LootsieSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = LootsieSDKResources.bundle; path = "Lootsie/Debug-iphoneos/LootsieSDKResources.bundle"; sourceTree = "<group>"; };
+		52CDE4AC1B2A071F001E7601 /* Lootsie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lootsie.h; path = "Lootsie/Debug-iphoneos/include/Lootsie/Lootsie.h"; sourceTree = "<group>"; };
 		52F4AC441B0AA48A0023CE71 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
 		52F4AC451B0AA48A0023CE71 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		52F4AC461B0AA48A0023CE71 /* Icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-152.png"; sourceTree = "<group>"; };
@@ -1216,9 +1220,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52CDE4AA1B2A06B9001E7601 /* libRestKit.a in Frameworks */,
 				52F833A01AF43ABE002F9F36 /* Security.framework in Frameworks */,
 				02F5976D14BDCB3F00C9349A /* CoreGraphics.framework in Frameworks */,
 				52F833A21AF43ACD002F9F36 /* SystemConfiguration.framework in Frameworks */,
+				52CDE4A91B2A06B9001E7601 /* libLootsie.a in Frameworks */,
 				52F833A41AF43AD8002F9F36 /* MobileCoreServices.framework in Frameworks */,
 				02F5976914BDCB3F00C9349A /* UIKit.framework in Frameworks */,
 				02F5976B14BDCB3F00C9349A /* Foundation.framework in Frameworks */,
@@ -2412,35 +2418,12 @@
 		52E8F4E21AF437500081BF36 /* Lootsie */ = {
 			isa = PBXGroup;
 			children = (
-				52E8F4F81AF438870081BF36 /* iphoneos */,
-				52E8F4F51AF437F40081BF36 /* LootsieSDKResources.bundle */,
+				52CDE4AC1B2A071F001E7601 /* Lootsie.h */,
+				52CDE4A61B2A06B9001E7601 /* libLootsie.a */,
+				52CDE4A71B2A06B9001E7601 /* libRestKit.a */,
+				52CDE4A81B2A06B9001E7601 /* LootsieSDKResources.bundle */,
 			);
 			name = Lootsie;
-			sourceTree = "<group>";
-		};
-		52E8F4F81AF438870081BF36 /* iphoneos */ = {
-			isa = PBXGroup;
-			children = (
-				52E8F4F91AF438B50081BF36 /* include */,
-			);
-			name = iphoneos;
-			sourceTree = "<group>";
-		};
-		52E8F4F91AF438B50081BF36 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				52E8F4FA1AF438B50081BF36 /* Lootsie */,
-			);
-			name = include;
-			path = Lootsie/iphoneos/include;
-			sourceTree = "<group>";
-		};
-		52E8F4FA1AF438B50081BF36 /* Lootsie */ = {
-			isa = PBXGroup;
-			children = (
-				52E8F4FB1AF438B50081BF36 /* Lootsie.h */,
-			);
-			path = Lootsie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2644,6 +2627,7 @@
 				02F59A9A14BDCD2400C9349A /* timer_00040.png in Resources */,
 				02F59A9B14BDCD2400C9349A /* timer_00041.png in Resources */,
 				02F59A9C14BDCD2400C9349A /* timer_00042.png in Resources */,
+				52CDE4AB1B2A06B9001E7601 /* LootsieSDKResources.bundle in Resources */,
 				02F59A9D14BDCD2400C9349A /* timer_00043.png in Resources */,
 				02F59A9E14BDCD2400C9349A /* timer_00044.png in Resources */,
 				02F59A9F14BDCD2400C9349A /* timer_00045.png in Resources */,
@@ -2775,7 +2759,6 @@
 				0251C62E15541E210095B23D /* Icon-Small.png in Resources */,
 				0251C62F15541E210095B23D /* Icon-Small-50.png in Resources */,
 				0251C63015541E210095B23D /* Icon-72.png in Resources */,
-				52E8F4F61AF437F40081BF36 /* LootsieSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3047,6 +3030,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Rev6/Lootsie/iphoneos/**",
+					"$(PROJECT_DIR)/Rev6/Lootsie/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -3057,7 +3041,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "\"Rev6/libs\"";
 				WRAPPER_EXTENSION = app;
 			};
@@ -3080,6 +3064,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Rev6/Lootsie/iphoneos/**",
+					"$(PROJECT_DIR)/Rev6/Lootsie/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -3090,7 +3075,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "\"Rev6/libs\"";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
