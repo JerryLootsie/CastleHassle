@@ -26,7 +26,6 @@
 		0297D75D15011D5C00F8C630 /* tut2.psd in Resources */ = {isa = PBXBuildFile; fileRef = 0297D75915011D5C00F8C630 /* tut2.psd */; };
 		029E5F5E14F682DF007ABCF5 /* stdButtonsPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 029E5F5D14F682DD007ABCF5 /* stdButtonsPressed.png */; };
 		02A0C4DF14BEA8CB00B739E3 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A0C4DE14BEA8CB00B739E3 /* JSONKit.m */; };
-		02A0C4E214BEC68D00B739E3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A0C4E114BEC68D00B739E3 /* StoreKit.framework */; };
 		02C3C6F214BDD19E004BCC33 /* PListReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02C3C6EB14BDD19E004BCC33 /* PListReader.mm */; };
 		02C3C6F314BDD19E004BCC33 /* StaticUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02C3C6ED14BDD19E004BCC33 /* StaticUtils.mm */; };
 		02C3C6F414BDD19E004BCC33 /* LinkedList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02C3C6EF14BDD19E004BCC33 /* LinkedList.mm */; };
@@ -484,9 +483,9 @@
 		02F59C1514BDD14800C9349A /* CannonBallExplosion.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02F59C0D14BDD14800C9349A /* CannonBallExplosion.mm */; };
 		02F59C1614BDD14800C9349A /* CannonBallTrail.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02F59C0F14BDD14800C9349A /* CannonBallTrail.mm */; };
 		02F59C1714BDD14800C9349A /* DestroyedPieceAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02F59C1114BDD14800C9349A /* DestroyedPieceAnimation.mm */; };
-		52CDE4A91B2A06B9001E7601 /* libLootsie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CDE4A61B2A06B9001E7601 /* libLootsie.a */; };
-		52CDE4AA1B2A06B9001E7601 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CDE4A71B2A06B9001E7601 /* libRestKit.a */; };
-		52CDE4AB1B2A06B9001E7601 /* LootsieSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52CDE4A81B2A06B9001E7601 /* LootsieSDKResources.bundle */; };
+		52CC1E721B2A186400354BA8 /* libLootsie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CC1E6F1B2A186400354BA8 /* libLootsie.a */; };
+		52CC1E731B2A186400354BA8 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CC1E701B2A186400354BA8 /* libRestKit.a */; };
+		52CC1E741B2A186400354BA8 /* LootsieSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52CC1E711B2A186400354BA8 /* LootsieSDKResources.bundle */; };
 		52F4AC411B0A99290023CE71 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02F5978014BDCB3F00C9349A /* Info.plist */; };
 		52F4AC471B0AA48A0023CE71 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F4AC441B0AA48A0023CE71 /* Icon-76.png */; };
 		52F4AC481B0AA48A0023CE71 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F4AC451B0AA48A0023CE71 /* Icon-120.png */; };
@@ -519,7 +518,6 @@
 		029E5F5D14F682DD007ABCF5 /* stdButtonsPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stdButtonsPressed.png; sourceTree = "<group>"; };
 		02A0C4DD14BEA8CB00B739E3 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		02A0C4DE14BEA8CB00B739E3 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
-		02A0C4E114BEC68D00B739E3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		02C3C6EA14BDD19E004BCC33 /* PListReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PListReader.h; sourceTree = "<group>"; };
 		02C3C6EB14BDD19E004BCC33 /* PListReader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PListReader.mm; sourceTree = "<group>"; };
 		02C3C6EC14BDD19E004BCC33 /* StaticUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticUtils.h; sourceTree = "<group>"; };
@@ -1201,10 +1199,10 @@
 		02F59C0F14BDD14800C9349A /* CannonBallTrail.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CannonBallTrail.mm; sourceTree = "<group>"; };
 		02F59C1014BDD14800C9349A /* DestroyedPieceAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestroyedPieceAnimation.h; sourceTree = "<group>"; };
 		02F59C1114BDD14800C9349A /* DestroyedPieceAnimation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DestroyedPieceAnimation.mm; sourceTree = "<group>"; };
-		52CDE4A61B2A06B9001E7601 /* libLootsie.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLootsie.a; path = "Lootsie/Debug-iphoneos/libLootsie.a"; sourceTree = "<group>"; };
-		52CDE4A71B2A06B9001E7601 /* libRestKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRestKit.a; path = "Lootsie/Debug-iphoneos/libRestKit.a"; sourceTree = "<group>"; };
-		52CDE4A81B2A06B9001E7601 /* LootsieSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = LootsieSDKResources.bundle; path = "Lootsie/Debug-iphoneos/LootsieSDKResources.bundle"; sourceTree = "<group>"; };
-		52CDE4AC1B2A071F001E7601 /* Lootsie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lootsie.h; path = "Lootsie/Debug-iphoneos/include/Lootsie/Lootsie.h"; sourceTree = "<group>"; };
+		52CC1E6E1B2A186400354BA8 /* Lootsie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lootsie.h; sourceTree = "<group>"; };
+		52CC1E6F1B2A186400354BA8 /* libLootsie.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLootsie.a; path = "Lootsie/Debug-iphoneos/libLootsie.a"; sourceTree = "<group>"; };
+		52CC1E701B2A186400354BA8 /* libRestKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRestKit.a; path = "Lootsie/Debug-iphoneos/libRestKit.a"; sourceTree = "<group>"; };
+		52CC1E711B2A186400354BA8 /* LootsieSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = LootsieSDKResources.bundle; path = "Lootsie/Debug-iphoneos/LootsieSDKResources.bundle"; sourceTree = "<group>"; };
 		52F4AC441B0AA48A0023CE71 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
 		52F4AC451B0AA48A0023CE71 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		52F4AC461B0AA48A0023CE71 /* Icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-152.png"; sourceTree = "<group>"; };
@@ -1220,18 +1218,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52CDE4AA1B2A06B9001E7601 /* libRestKit.a in Frameworks */,
 				52F833A01AF43ABE002F9F36 /* Security.framework in Frameworks */,
 				02F5976D14BDCB3F00C9349A /* CoreGraphics.framework in Frameworks */,
 				52F833A21AF43ACD002F9F36 /* SystemConfiguration.framework in Frameworks */,
-				52CDE4A91B2A06B9001E7601 /* libLootsie.a in Frameworks */,
 				52F833A41AF43AD8002F9F36 /* MobileCoreServices.framework in Frameworks */,
 				02F5976914BDCB3F00C9349A /* UIKit.framework in Frameworks */,
 				02F5976B14BDCB3F00C9349A /* Foundation.framework in Frameworks */,
-				02A0C4E214BEC68D00B739E3 /* StoreKit.framework in Frameworks */,
 				02F5975F14BDCB3F00C9349A /* QuartzCore.framework in Frameworks */,
 				02F5976114BDCB3F00C9349A /* OpenGLES.framework in Frameworks */,
 				02F5976314BDCB3F00C9349A /* OpenAL.framework in Frameworks */,
+				52CC1E721B2A186400354BA8 /* libLootsie.a in Frameworks */,
+				52CC1E731B2A186400354BA8 /* libRestKit.a in Frameworks */,
 				02F5976514BDCB3F00C9349A /* AudioToolbox.framework in Frameworks */,
 				02F5976714BDCB3F00C9349A /* AVFoundation.framework in Frameworks */,
 			);
@@ -1427,7 +1424,6 @@
 				52F833A31AF43AD8002F9F36 /* MobileCoreServices.framework */,
 				52F833A11AF43ACD002F9F36 /* SystemConfiguration.framework */,
 				52F8339F1AF43ABE002F9F36 /* Security.framework */,
-				02A0C4E114BEC68D00B739E3 /* StoreKit.framework */,
 				02F5975E14BDCB3F00C9349A /* QuartzCore.framework */,
 				02F5976014BDCB3F00C9349A /* OpenGLES.framework */,
 				02F5976214BDCB3F00C9349A /* OpenAL.framework */,
@@ -2415,13 +2411,30 @@
 			name = Particles;
 			sourceTree = "<group>";
 		};
+		52CC1E6C1B2A186400354BA8 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				52CC1E6D1B2A186400354BA8 /* Lootsie */,
+			);
+			name = include;
+			path = "Lootsie/Debug-iphoneos/include";
+			sourceTree = "<group>";
+		};
+		52CC1E6D1B2A186400354BA8 /* Lootsie */ = {
+			isa = PBXGroup;
+			children = (
+				52CC1E6E1B2A186400354BA8 /* Lootsie.h */,
+			);
+			path = Lootsie;
+			sourceTree = "<group>";
+		};
 		52E8F4E21AF437500081BF36 /* Lootsie */ = {
 			isa = PBXGroup;
 			children = (
-				52CDE4AC1B2A071F001E7601 /* Lootsie.h */,
-				52CDE4A61B2A06B9001E7601 /* libLootsie.a */,
-				52CDE4A71B2A06B9001E7601 /* libRestKit.a */,
-				52CDE4A81B2A06B9001E7601 /* LootsieSDKResources.bundle */,
+				52CC1E6C1B2A186400354BA8 /* include */,
+				52CC1E6F1B2A186400354BA8 /* libLootsie.a */,
+				52CC1E701B2A186400354BA8 /* libRestKit.a */,
+				52CC1E711B2A186400354BA8 /* LootsieSDKResources.bundle */,
 			);
 			name = Lootsie;
 			sourceTree = "<group>";
@@ -2457,6 +2470,11 @@
 				TargetAttributes = {
 					02F5975914BDCB3F00C9349A = {
 						DevelopmentTeam = 8CL69GL5L4;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -2627,7 +2645,7 @@
 				02F59A9A14BDCD2400C9349A /* timer_00040.png in Resources */,
 				02F59A9B14BDCD2400C9349A /* timer_00041.png in Resources */,
 				02F59A9C14BDCD2400C9349A /* timer_00042.png in Resources */,
-				52CDE4AB1B2A06B9001E7601 /* LootsieSDKResources.bundle in Resources */,
+				52CC1E741B2A186400354BA8 /* LootsieSDKResources.bundle in Resources */,
 				02F59A9D14BDCD2400C9349A /* timer_00043.png in Resources */,
 				02F59A9E14BDCD2400C9349A /* timer_00044.png in Resources */,
 				02F59A9F14BDCD2400C9349A /* timer_00045.png in Resources */,
@@ -2976,7 +2994,7 @@
 		02F5994214BDCB4100C9349A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -2988,7 +3006,7 @@
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2996,7 +3014,7 @@
 		02F5994314BDCB4100C9349A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: ITV LLC";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Matthew Wood";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3004,7 +3022,7 @@
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "944F265C-F6F9-4035-ADB4-58FBF9658133";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4E6B2A9E-DFA3-4E9E-9DCC-31F05E56A397";
@@ -3031,6 +3049,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Rev6/Lootsie/iphoneos/**",
 					"$(PROJECT_DIR)/Rev6/Lootsie/Debug-iphoneos",
+					"$(PROJECT_DIR)/Rev6/Lootsie/Debug-iphonesimulator",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -3065,6 +3084,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Rev6/Lootsie/iphoneos/**",
 					"$(PROJECT_DIR)/Rev6/Lootsie/Debug-iphoneos",
+					"$(PROJECT_DIR)/Rev6/Lootsie/Debug-iphonesimulator",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",

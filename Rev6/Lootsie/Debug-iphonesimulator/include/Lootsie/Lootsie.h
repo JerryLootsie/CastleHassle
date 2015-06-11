@@ -51,6 +51,26 @@ typedef void(^CompletionCallback)(BOOL finished);
 @end
 
 
+// see also Net/GetApp/AchievementResponse.h
+// we want to avoid forcing the developer to have to include restkit header files because of conflicts
+@interface LootsieAchievement : NSObject
+
+// app achievement - from Get /app
+@property (nonatomic, strong) NSString* achievment_description;
+@property (nonatomic, strong) NSString* achievement_id;
+@property (nonatomic) Boolean is_achieved;
+@property (nonatomic) NSInteger lp;
+@property (nonatomic, strong) NSString* name;
+@property (nonatomic) Boolean repeatable;
+
+// user achievement - from Get /user/achievements
+// id
+// date
+@property (nonatomic, strong) NSString* date;
+// lp
+
+@end
+
 // see also Net/GetUserAccount/GetUserAccountResponse.h
 // we want to avoid forcing the developer to have to include restkit header files because of conflicts
 @interface LootsieUserAccount : NSObject
