@@ -215,8 +215,7 @@
 - (void) dealloc {
     [super dealloc];
         
-    [extremeLeft release];
-    [extremeRight release];
+    extremeLeft = extremeRight = nil;
     [playerAreas release];
     
 }

@@ -21,6 +21,7 @@
 #import "JSONKit.h"
 
 #import "MapScreen.h"
+#import "Lootsie.h"
 
 //Pixel to metres ratio. Box2D uses metres as the unit for measurement.
 //This ratio defines how many pixels correspond to 1 Box2D "metre"
@@ -357,6 +358,18 @@ static Battlefield * instance = nil;
 	if([piece isKindOfClass:[Weapon class]]) { 
         if([self playerDidWin]) {
             [self winGame];
+        } else {
+            if (![piece.owner isEqual:[playerAreaManager getCurrentPlayerArea]]) {
+                ServiceCallback achievementReachedCallback = ^(BOOL success, id result, NSString* errorMessage, NSInteger statusCode) {
+                    if (success) {
+                        NSLog(@"AppDelegate: Lootsie Achievement Reached!");
+                    } else {
+                        NSLog(@"AppDelegate: Lootsie Achievement Reached Failed with error: %@", errorMessage);
+                    }
+                };
+                
+                [[Lootsie sharedInstance] achievementReachedWithIdLocationCallback:@"castlehit" location:@"default" callback:achievementReachedCallback];
+            }
         }
     }
 }
@@ -393,26 +406,47 @@ static Battlefield * instance = nil;
 }
 
 -(void) winGame {
+    
+    ServiceCallback achievementReachedCallback = ^(BOOL success, id result, NSString* errorMessage, NSInteger statusCode) {
+        if (success) {
+            NSLog(@"AppDelegate: Lootsie Achievement Reached!");
+        } else {
+            NSLog(@"AppDelegate: Lootsie Achievement Reached Failed with error: %@", errorMessage);
+        }
+    };
+    
+    [[Lootsie sharedInstance] achievementReachedWithIdLocationCallback:@"winGame" location:@"default" callback:achievementReachedCallback];
+    
 		
-		[MainMenu resetInstance];        
-		[[CCDirector sharedDirector] replaceScene:[MainMenu instance]];
-		
-		
-		if([[GameSettings instance] isCampaign]) {
-            [MapScreen saveConqueredTerritory:[GameSettings instance].territoryID];
-		}
-		
+    [MainMenu resetInstance];
+    [[CCDirector sharedDirector] replaceScene:[MainMenu instance]];
+    
+    
+    if([[GameSettings instance] isCampaign]) {
+        [MapScreen saveConqueredTerritory:[GameSettings instance].territoryID];
+    }
+    
 
-		Winner* w = [Winner node];
-		[w setGameTime:gameTime];
-		[[MainMenu instance] addChild:w];
-        
-		
-		[self resetInstance];
+    Winner* w = [Winner node];
+    [w setGameTime:gameTime];
+    [[MainMenu instance] addChild:w];
+    
+    
+    [self resetInstance];
 
 }
 
 -(void) loseGame {
+    
+    ServiceCallback achievementReachedCallback = ^(BOOL success, id result, NSString* errorMessage, NSInteger statusCode) {
+        if (success) {
+            NSLog(@"AppDelegate: Lootsie Achievement Reached!");
+        } else {
+            NSLog(@"AppDelegate: Lootsie Achievement Reached Failed with error: %@", errorMessage);
+        }
+    };
+    
+    [[Lootsie sharedInstance] achievementReachedWithIdLocationCallback:@"loseGame" location:@"default" callback:achievementReachedCallback];
 	
 	[MainMenu resetInstance];
 	[[CCDirector sharedDirector] replaceScene: [MainMenu instance]];
