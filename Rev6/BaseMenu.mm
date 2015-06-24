@@ -35,7 +35,8 @@
 	menuItem.position = p;
     
     
-	CCLabelTTF* label = [CCLabelTTF labelWithString:s fontName:@"arial" fontSize:15.f];
+	CCLabelTTF* label = [CCLabelTTF labelWithString:s fontName:@"arial" fontSize:16.f];
+    label.color = ccc3(255, 255, 255);
     label.position = ccp(buttonFrame.size.width / 2.f, buttonFrame.size.height / 2.f);
     
     [menuItem addChild:label];
@@ -66,6 +67,29 @@
 	[self addChild:menu z:6];
 	
 	return menuItem;
+}
+
+- (CCMenuItemSprite *)iconMenuItemWithIconRect:(CGRect)iconRect atPosition:(CGPoint)p selector:(SEL)selector {
+    
+    CGRect buttonFrame = CGRectMake(0.f, 116.f, 38.f, 38.f);
+    CCSprite* button = spriteWithRect(@"stdButtons.png", buttonFrame);
+    CCSprite* selectedButton = spriteWithRect(@"stdButtonsPressed.png", buttonFrame);
+    
+    CCMenuItemSprite* menuItem = [CCMenuItemSprite itemFromNormalSprite:button
+                                                         selectedSprite:selectedButton
+                                                                 target:self
+                                                               selector:selector];
+    
+    menuItem.position = p;
+    
+    CCSprite *icon = spriteWithRect(@"menu-icons.png", iconRect);
+    icon.position = ccp(buttonFrame.size.width / 2.f, buttonFrame.size.height / 2.f);
+    [menuItem addChild:icon];
+    
+    CCMenu *menu = [CCMenu menuWithItems:menuItem, nil];
+    [self addChild:menu z:6];
+    
+    return menuItem;
 }
 
 -(void)toggled:(id)sender {}

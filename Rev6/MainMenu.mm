@@ -15,6 +15,8 @@
 #import "Credits.h"
 #import "BackButtonLayer.h"
 #import "GameSettings.h"
+#import "LootsieAchievementsScreen.h"
+#import "LootsieRewardsScreen.h"
 #import "Lootsie.h"
 
 @implementation MainMenu
@@ -73,37 +75,27 @@ static MainMenu * instance = nil;
         [logo setPosition:ccp(240, 245)];
 		[self addChild:logo z:0];
 		
-		CCSprite* navBack = sprite(@"splashNavBack.png");
-        [navBack setPosition:ccp(240, 62)];
+		CCSprite* navBack = sprite(@"splashNavBack2.png");
+        [navBack setPosition:ccp(240, 40)];
 		[self addChild:navBack z:0];
 		
 		
 		[CCMenuItemFont setFontSize:16];
 		[CCMenuItemFont setFontName:@"arial"];
 		
-		// add the four buttons
-		[self makeButtonWithString:@"Single Player" 
-						atPosition:ccp(-70,-75) 
-					  withSelector:@selector(singlePlayer:)];
-		
-		
-		[self makeButtonWithString:@"Settings"
-						atPosition:ccp(70,-121) 
-					  withSelector:@selector(settings:)];
-		
-		[self makeButtonWithString:@"Campaign"
-						atPosition:ccp(-70,-121)
-					  withSelector:@selector(campaign:)];
-		
-		[self makeButtonWithString:@"How-to-play"
-						atPosition:ccp(70,-75) 
-					withSelector:@selector(howToPlay:)];
-
-		[self makeButtonWithString:@"Lootsie"
-						atPosition:ccp(0, -20)
-					  withSelector:@selector(showLootsieRewards:)];
-                    
+		// add the six buttons
         
+        [self iconMenuItemWithIconRect:CGRectMake(0.f, 0.f, 24.f, 24.f) atPosition:ccp(-115, -120) selector:@selector(singlePlayer:)];
+        
+        [self iconMenuItemWithIconRect:CGRectMake(24.f, 0.f, 24.f, 24.f) atPosition:ccp(-69, -120) selector:@selector(campaign:)];
+        
+        [self iconMenuItemWithIconRect:CGRectMake(48.f, 0.f, 24.f, 24.f) atPosition:ccp(-23, -120) selector:@selector(showAchievements:)];
+        
+        [self iconMenuItemWithIconRect:CGRectMake(72.f, 0.f, 24.f, 24.f) atPosition:ccp(23, -120) selector:@selector(showRewards:)];
+        
+        [self iconMenuItemWithIconRect:CGRectMake(96.f, 0.f, 24.f, 24.f) atPosition:ccp(69, -120) selector:@selector(settings:)];
+        
+        [self iconMenuItemWithIconRect:CGRectMake(120.f, 0.f, 24.f, 24.f) atPosition:ccp(113, -120) selector:@selector(howToPlay:)];
 	}
 	return self;
 }
@@ -145,8 +137,16 @@ static MainMenu * instance = nil;
 	[main addChild:[Credits node]];
 }
 
-- (void)showLootsieRewards: (id)sender {
-	[[Lootsie sharedInstance] showRewardsPage];
+- (void)showRewards: (id)sender {
+    MainMenu* main = [MainMenu instance];
+    [main removeChild:self cleanup:YES];
+    [main addChild:[LootsieRewardsScreen node]];
+}
+
+- (void)showAchievements: (id)sender {
+    MainMenu* main = [MainMenu instance];
+    [main removeChild:self cleanup:YES];
+    [main addChild:[LootsieAchievementsScreen node]];
 }
 
 

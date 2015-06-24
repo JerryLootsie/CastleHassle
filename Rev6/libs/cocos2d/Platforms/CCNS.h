@@ -39,7 +39,7 @@
 #define CCNSSizeToCGSize
 #define CCNSRectToCGRect
 #define CCNSPointToCGPoint
-#define CCTextAlignment				UITextAlignment
+#define CCTextAlignment				NSTextAlignment
 #define CCTextAlignmentCenter		UITextAlignmentCenter
 #define CCTextAlignmentLeft			UITextAlignmentLeft
 #define CCTextAlignmentRight		UITextAlignmentRight

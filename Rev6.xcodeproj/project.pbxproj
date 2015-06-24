@@ -484,6 +484,15 @@
 		02F59C1514BDD14800C9349A /* CannonBallExplosion.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02F59C0D14BDD14800C9349A /* CannonBallExplosion.mm */; };
 		02F59C1614BDD14800C9349A /* CannonBallTrail.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02F59C0F14BDD14800C9349A /* CannonBallTrail.mm */; };
 		02F59C1714BDD14800C9349A /* DestroyedPieceAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02F59C1114BDD14800C9349A /* DestroyedPieceAnimation.mm */; };
+		9639B0941B38BD1000751BA6 /* splashNavBack2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9639B0931B38BD1000751BA6 /* splashNavBack2.png */; };
+		9639B09B1B38BD2600751BA6 /* menu-icons.png in Resources */ = {isa = PBXBuildFile; fileRef = 9639B0981B38BD2600751BA6 /* menu-icons.png */; };
+		9639B0A31B38E7E700751BA6 /* achievements.png in Resources */ = {isa = PBXBuildFile; fileRef = 9639B0A21B38E7E700751BA6 /* achievements.png */; };
+		9639B0A51B39DD5D00751BA6 /* ribbon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9639B0A41B39DD5D00751BA6 /* ribbon.png */; };
+		9657A80F1B349ECF0063A48D /* LootsieAchievementsScreen.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9657A80C1B349ECF0063A48D /* LootsieAchievementsScreen.mm */; };
+		9657A8101B349ECF0063A48D /* LootsieRewardsScreen.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9657A80E1B349ECF0063A48D /* LootsieRewardsScreen.mm */; };
+		96EC19861B3A128B001F47A5 /* rewards_foreground.png in Resources */ = {isa = PBXBuildFile; fileRef = 96EC19851B3A128B001F47A5 /* rewards_foreground.png */; };
+		96EC198F1B3A18B0001F47A5 /* LootsieRewardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EC198E1B3A18B0001F47A5 /* LootsieRewardItem.m */; };
+		96EC19931B3A522C001F47A5 /* rewards_cost_cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 96EC19921B3A522C001F47A5 /* rewards_cost_cloud.png */; };
 		DC47FE321B17D2020085E9EA /* libLootsie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC47FE2D1B17D12D0085E9EA /* libLootsie.a */; };
 		DC47FE341B17D2020085E9EA /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC47FE331B17D2020085E9EA /* libRestKit.a */; };
 		DC47FE351B17D20E0085E9EA /* LootsieSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DC47FE311B17D12D0085E9EA /* LootsieSDKResources.bundle */; };
@@ -1221,6 +1230,18 @@
 		02F59C0F14BDD14800C9349A /* CannonBallTrail.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CannonBallTrail.mm; sourceTree = "<group>"; };
 		02F59C1014BDD14800C9349A /* DestroyedPieceAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestroyedPieceAnimation.h; sourceTree = "<group>"; };
 		02F59C1114BDD14800C9349A /* DestroyedPieceAnimation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DestroyedPieceAnimation.mm; sourceTree = "<group>"; };
+		9639B0931B38BD1000751BA6 /* splashNavBack2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashNavBack2.png; sourceTree = "<group>"; };
+		9639B0981B38BD2600751BA6 /* menu-icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icons.png"; sourceTree = "<group>"; };
+		9639B0A21B38E7E700751BA6 /* achievements.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = achievements.png; sourceTree = "<group>"; };
+		9639B0A41B39DD5D00751BA6 /* ribbon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ribbon.png; sourceTree = "<group>"; };
+		9657A80B1B349ECF0063A48D /* LootsieRewardsScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LootsieRewardsScreen.h; sourceTree = "<group>"; };
+		9657A80C1B349ECF0063A48D /* LootsieAchievementsScreen.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LootsieAchievementsScreen.mm; sourceTree = "<group>"; };
+		9657A80D1B349ECF0063A48D /* LootsieAchievementsScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LootsieAchievementsScreen.h; sourceTree = "<group>"; };
+		9657A80E1B349ECF0063A48D /* LootsieRewardsScreen.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LootsieRewardsScreen.mm; sourceTree = "<group>"; };
+		96EC19851B3A128B001F47A5 /* rewards_foreground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rewards_foreground.png; sourceTree = "<group>"; };
+		96EC198D1B3A18B0001F47A5 /* LootsieRewardItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LootsieRewardItem.h; sourceTree = "<group>"; };
+		96EC198E1B3A18B0001F47A5 /* LootsieRewardItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LootsieRewardItem.m; sourceTree = "<group>"; };
+		96EC19921B3A522C001F47A5 /* rewards_cost_cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rewards_cost_cloud.png; sourceTree = "<group>"; };
 		DC47FE251B17D12D0085E9EA /* Lootsie.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lootsie.xcodeproj; path = "ios-sdk4/Lootsie/Lootsie.xcodeproj"; sourceTree = "<group>"; };
 		DC47FE331B17D2020085E9EA /* libRestKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRestKit.a; path = "../../../Library/Developer/Xcode/DerivedData/Rev6-ekffcmnzjfucbybowpvrwqgaplxk/Build/Products/Debug-iphoneos/libRestKit.a"; sourceTree = "<group>"; };
 		DC47FE361B17D4DD0085E9EA /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -2278,8 +2299,10 @@
 		02F59B9814BDCDBC00C9349A /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				9639B0A41B39DD5D00751BA6 /* ribbon.png */,
 				0297D75615011D5C00F8C630 /* screen1.png */,
 				0297D75715011D5C00F8C630 /* screen2.png */,
+				9639B0A21B38E7E700751BA6 /* achievements.png */,
 				0297D75815011D5C00F8C630 /* tut1.psd */,
 				0297D75915011D5C00F8C630 /* tut2.psd */,
 				0239A41614C0ADD300B7AD45 /* blackWall.png */,
@@ -2292,6 +2315,9 @@
 				02F59BA114BDCDE700C9349A /* shootIndicator.png */,
 				02F59BA214BDCDE700C9349A /* heal.png */,
 				02F59BA314BDCDE700C9349A /* background.jpg */,
+				96EC19851B3A128B001F47A5 /* rewards_foreground.png */,
+				96EC19921B3A522C001F47A5 /* rewards_cost_cloud.png */,
+				9639B0981B38BD2600751BA6 /* menu-icons.png */,
 				02F59BA414BDCDE700C9349A /* stdButtons.png */,
 				029E5F5D14F682DD007ABCF5 /* stdButtonsPressed.png */,
 				02F59BA514BDCDE700C9349A /* comboButtons.png */,
@@ -2304,6 +2330,7 @@
 				02F59BAC14BDCDE700C9349A /* menuBack.png */,
 				02F59BAD14BDCDE700C9349A /* popLink.png */,
 				02F59BAE14BDCDE700C9349A /* selected.png */,
+				9639B0931B38BD1000751BA6 /* splashNavBack2.png */,
 				02F59BAF14BDCDE700C9349A /* splashNavBack.png */,
 			);
 			name = Misc;
@@ -2345,6 +2372,7 @@
 		02F59BC914BDD0C400C9349A /* Menus */ = {
 			isa = PBXGroup;
 			children = (
+				9657A8011B348E7C0063A48D /* Lootsie */,
 				02F59C0014BDD0E400C9349A /* Menu Items */,
 				02F59BFF14BDD0D800C9349A /* Campaign */,
 				02C3C76714BDD29D004BCC33 /* MainScene.h */,
@@ -2428,6 +2456,19 @@
 				02F59C1114BDD14800C9349A /* DestroyedPieceAnimation.mm */,
 			);
 			name = Particles;
+			sourceTree = "<group>";
+		};
+		9657A8011B348E7C0063A48D /* Lootsie */ = {
+			isa = PBXGroup;
+			children = (
+				9657A80B1B349ECF0063A48D /* LootsieRewardsScreen.h */,
+				9657A80C1B349ECF0063A48D /* LootsieAchievementsScreen.mm */,
+				9657A80D1B349ECF0063A48D /* LootsieAchievementsScreen.h */,
+				9657A80E1B349ECF0063A48D /* LootsieRewardsScreen.mm */,
+				96EC198D1B3A18B0001F47A5 /* LootsieRewardItem.h */,
+				96EC198E1B3A18B0001F47A5 /* LootsieRewardItem.m */,
+			);
+			name = Lootsie;
 			sourceTree = "<group>";
 		};
 		DC47FE261B17D12D0085E9EA /* Products */ = {
@@ -2616,6 +2657,7 @@
 				02F59A2114BDCCC100C9349A /* sbackLeft.jpg in Resources */,
 				02F59A2214BDCCC100C9349A /* sbackRight.jpg in Resources */,
 				02F59A2314BDCCC100C9349A /* sfrontLeft.png in Resources */,
+				9639B0A51B39DD5D00751BA6 /* ribbon.png in Resources */,
 				02F59A2414BDCCC100C9349A /* sfrontRight.png in Resources */,
 				02F59A2514BDCCC100C9349A /* smiddleLeft.png in Resources */,
 				02F59A2614BDCCC100C9349A /* smiddleRight.png in Resources */,
@@ -2661,6 +2703,7 @@
 				02F59A9314BDCD2400C9349A /* timer_00033.png in Resources */,
 				02F59A9414BDCD2400C9349A /* timer_00034.png in Resources */,
 				02F59A9514BDCD2400C9349A /* timer_00035.png in Resources */,
+				9639B0A31B38E7E700751BA6 /* achievements.png in Resources */,
 				02F59A9614BDCD2400C9349A /* timer_00036.png in Resources */,
 				02F59A9714BDCD2400C9349A /* timer_00037.png in Resources */,
 				02F59A9814BDCD2400C9349A /* timer_00038.png in Resources */,
@@ -2675,6 +2718,7 @@
 				02F59AA114BDCD2400C9349A /* timer_00047.png in Resources */,
 				02F59AA214BDCD2400C9349A /* timer_00048.png in Resources */,
 				02F59AA314BDCD2400C9349A /* timer_00049.png in Resources */,
+				96EC19861B3A128B001F47A5 /* rewards_foreground.png in Resources */,
 				02F59AA414BDCD2400C9349A /* timer_00050.png in Resources */,
 				02F59AA514BDCD2400C9349A /* timer_00051.png in Resources */,
 				02F59AA614BDCD2400C9349A /* timer_00052.png in Resources */,
@@ -2709,6 +2753,7 @@
 				02F59B3114BDCD4200C9349A /* 3sb.png in Resources */,
 				02F59B3314BDCD4200C9349A /* 4sb.png in Resources */,
 				02F59B3514BDCD4200C9349A /* 5sb.png in Resources */,
+				9639B09B1B38BD2600751BA6 /* menu-icons.png in Resources */,
 				02F59B3714BDCD4200C9349A /* 6sb.png in Resources */,
 				02F59B3914BDCD4300C9349A /* 7sb.png in Resources */,
 				02F59B3B14BDCD4300C9349A /* 8sb.png in Resources */,
@@ -2755,6 +2800,7 @@
 				02F59B9314BDCD9D00C9349A /* merlin.png in Resources */,
 				02F59B9414BDCD9D00C9349A /* tower.png in Resources */,
 				02F59B9514BDCD9D00C9349A /* turret.png in Resources */,
+				96EC19931B3A522C001F47A5 /* rewards_cost_cloud.png in Resources */,
 				02F59B9614BDCD9D00C9349A /* wall.png in Resources */,
 				02F59B9714BDCD9D00C9349A /* wedge.png in Resources */,
 				02F59BB214BDCDE700C9349A /* shootIndicatorTail.png in Resources */,
@@ -2790,6 +2836,7 @@
 				028E7C2814E968A300115B3E /* playerEasy.dat in Resources */,
 				029E5F5E14F682DF007ABCF5 /* stdButtonsPressed.png in Resources */,
 				0297D75A15011D5C00F8C630 /* screen1.png in Resources */,
+				9639B0941B38BD1000751BA6 /* splashNavBack2.png in Resources */,
 				0297D75B15011D5C00F8C630 /* screen2.png in Resources */,
 				0297D75C15011D5C00F8C630 /* tut1.psd in Resources */,
 				0297D75D15011D5C00F8C630 /* tut2.psd in Resources */,
@@ -2814,6 +2861,7 @@
 				02F5979314BDCB3F00C9349A /* CCActionGrid3D.m in Sources */,
 				02F5979614BDCB3F00C9349A /* CCActionInstant.m in Sources */,
 				02F5979914BDCB3F00C9349A /* CCActionInterval.m in Sources */,
+				96EC198F1B3A18B0001F47A5 /* LootsieRewardItem.m in Sources */,
 				02F5979C14BDCB3F00C9349A /* CCActionManager.m in Sources */,
 				02F5979F14BDCB3F00C9349A /* CCActionPageTurn3D.m in Sources */,
 				02F597A214BDCB3F00C9349A /* CCActionProgressTimer.m in Sources */,
@@ -2913,6 +2961,7 @@
 				02F598DC14BDCB4000C9349A /* b2BlockAllocator.cpp in Sources */,
 				02F598DF14BDCB4000C9349A /* b2Math.cpp in Sources */,
 				02F598E214BDCB4000C9349A /* b2Settings.cpp in Sources */,
+				9657A80F1B349ECF0063A48D /* LootsieAchievementsScreen.mm in Sources */,
 				02F598E514BDCB4000C9349A /* b2StackAllocator.cpp in Sources */,
 				02F598E914BDCB4000C9349A /* b2Body.cpp in Sources */,
 				02F598EC14BDCB4000C9349A /* b2ContactManager.cpp in Sources */,
@@ -2964,6 +3013,7 @@
 				02F59C1514BDD14800C9349A /* CannonBallExplosion.mm in Sources */,
 				02F59C1614BDD14800C9349A /* CannonBallTrail.mm in Sources */,
 				02F59C1714BDD14800C9349A /* DestroyedPieceAnimation.mm in Sources */,
+				9657A8101B349ECF0063A48D /* LootsieRewardsScreen.mm in Sources */,
 				02C3C6F214BDD19E004BCC33 /* PListReader.mm in Sources */,
 				02C3C6F314BDD19E004BCC33 /* StaticUtils.mm in Sources */,
 				02C3C6F414BDD19E004BCC33 /* LinkedList.mm in Sources */,

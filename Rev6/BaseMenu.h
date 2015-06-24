@@ -15,6 +15,7 @@
 
 -(CCMenuItemSprite*)makeButtonWithString:(NSString*)s atPosition:(CGPoint)p withSelector:(SEL)selector;
 -(CCMenuItemSprite*)makeButtonFromRect:(CGRect)rect atPosition:(CGPoint)p withSelector:(SEL)selector;
+-(CCMenuItemSprite*)iconMenuItemWithIconRect:(CGRect)iconRect atPosition:(CGPoint)p selector:(SEL)selector;
 -(void)toggled:(id)sender;
 
 @end
