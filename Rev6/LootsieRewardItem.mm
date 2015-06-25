@@ -81,6 +81,8 @@ static const CGFloat _headerHeight = 30.f;
 }
 
 - (void)displayImage:(UIImage *)image {
+    if (image == nil) return;
+    
     NSString *key = [NSString stringWithFormat:@"reward_image_%@", self.reward.reward_id];
     if (nil == self.imageView) {
         self.imageView = [CCSprite spriteWithCGImage:image.CGImage key:key];

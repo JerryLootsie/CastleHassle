@@ -29,7 +29,7 @@ static LootsieRewardsScreen *instance = nil;
 
 @implementation LootsieRewardsScreen
 
-+ (LootsieRewardsScreen *)instance{
++ (LootsieRewardsScreen *)instance {
     if (instance == nil) {
         instance = [[LootsieRewardsScreen alloc] init];
     }
@@ -38,7 +38,7 @@ static LootsieRewardsScreen *instance = nil;
 
 - (void)dealloc {
     [super dealloc];
-    
+
     [_leftSwipe release];
     [_rightSwipe release];
     
@@ -48,6 +48,7 @@ static LootsieRewardsScreen *instance = nil;
 
 - (id)init {
     if (self = [super init]) {
+        _gameMode = NO;
         // background
         CCSprite *wall = [CCSprite spriteWithFile:@"background.jpg"];
         [wall setPosition:ccp(240,160)];
@@ -92,9 +93,6 @@ static LootsieRewardsScreen *instance = nil;
                 self.rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipe:)];
                 self.rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
                 self.rightSwipe.numberOfTouchesRequired = 1;
-                
-                [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:self.leftSwipe];
-                [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:self.rightSwipe];
             }
         } else {
             self.currentIndex = -1;
@@ -102,6 +100,20 @@ static LootsieRewardsScreen *instance = nil;
         
     }
     return self;
+}
+
+- (void)onEnterTransitionDidFinish {
+    [super onEnterTransitionDidFinish];
+    
+    [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:self.leftSwipe];
+    [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:self.rightSwipe];
+}
+
+- (void)onExit {
+    [super onExit];
+    
+    [[[CCDirector sharedDirector] openGLView] removeGestureRecognizer:self.leftSwipe];
+    [[[CCDirector sharedDirector] openGLView] removeGestureRecognizer:self.rightSwipe];
 }
 
 - (void)populateCurrentReward {
@@ -142,10 +154,17 @@ static LootsieRewardsScreen *instance = nil;
 
 - (void)previousScreen:(id)sender
 {
-    NSLog(@"Previous Screen Button Pressed");
-    MainMenu * main = [MainMenu instance];
-    [main removeChild:self cleanup:YES];
-    [main addChild:[MainMenuLayer node]];
+    NSLog(@"Previous Screen Button Pressed, GAME MODE: %@", (self.gameMode ? @"YES" : @"NO"));
+    
+    if (!self.gameMode) {
+        MainMenu * main = [MainMenu instance];
+        [main addChild:[MainMenuLayer node]];
+    }
+    
+    if (self.closeBlock) self.closeBlock();
+    self.closeBlock = nil;
+    
+    [self removeFromParentAndCleanup:YES];
 }
 
 - (BOOL) validateEmail: (NSString *) candidate {

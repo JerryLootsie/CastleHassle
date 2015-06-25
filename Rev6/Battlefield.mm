@@ -22,14 +22,13 @@
 
 #import "MapScreen.h"
 #import "Lootsie.h"
+#import "LootsieRewardsScreen.h"
 #import "LootsieAchievementBannerManager.h"
 
 //Pixel to metres ratio. Box2D uses metres as the unit for measurement.
 //This ratio defines how many pixels correspond to 1 Box2D "metre"
 //Box2D is optimized for objects of 1x1 metre therefore it makes sense
 //to define the ratio so that your most common object type is 1x1 metre.
-
-
 
 // Battlefield implementation
 @implementation Battlefield
@@ -201,6 +200,7 @@ static Battlefield * instance = nil;
 #pragma mark tick functions
 
 -(void) tick: (ccTime) dt {
+    if (paused) return;
 	//It is recommended that a fixed time step is used with Box2D for stability
 	//of the simulation, however, we are using a variable time step here.
 	//You need to make an informed choice, the following URL is useful
@@ -300,7 +300,8 @@ static Battlefield * instance = nil;
 }
 
 -(void) cleanupTick:(Piece *)piece body:(b2Body *)b {
-	
+	if (paused) return;
+    
     [playerAreaManager removePiece:piece forPlayer:piece.owner];
 	[touchables removeObject:piece];
 
@@ -361,11 +362,17 @@ static Battlefield * instance = nil;
             [self winGame];
         } else {
             if (![piece.owner isEqual:[playerAreaManager getCurrentPlayerArea]]) {
+                __unsafe_unretained __typeof(self) weakSelf = self;
                 ServiceCallback achievementReachedCallback = ^(BOOL success, id result, NSString* errorMessage, NSInteger statusCode) {
                     if (success) {
                         NSLog(@"AppDelegate: Lootsie Achievement Reached!");
                         [[LootsieAchievementBannerManager sharedManager] showBannerWithAchievementId:@"castlehit" forInterval:5.0 action:^{
-                            [(MainMenuLayer *)[[MainMenu instance] getChildByTag:MAIN_MENU_LAYER] showRewards:nil];
+                            [weakSelf pause];
+                            [LootsieRewardsScreen instance].gameMode = YES;
+                            [LootsieRewardsScreen instance].closeBlock = ^{
+                                [weakSelf resume];
+                            };
+                            [[[CCDirector sharedDirector] runningScene] addChild:[LootsieRewardsScreen instance] z:66];
                         }];
                     } else {
                         NSLog(@"AppDelegate: Lootsie Achievement Reached Failed with error: %@", errorMessage);
@@ -410,10 +417,18 @@ static Battlefield * instance = nil;
 }
 
 -(void) winGame {
-    
+    __unsafe_unretained __typeof(self) weakSelf = self;
     ServiceCallback achievementReachedCallback = ^(BOOL success, id result, NSString* errorMessage, NSInteger statusCode) {
         if (success) {
             NSLog(@"AppDelegate: Lootsie Achievement Reached!");
+            [[LootsieAchievementBannerManager sharedManager] showBannerWithAchievementId:@"winGame" forInterval:5.0 action:^{
+                [weakSelf pause];
+                [LootsieRewardsScreen instance].gameMode = YES;
+                [LootsieRewardsScreen instance].closeBlock = ^{
+                    [weakSelf resume];
+                };
+                [[[CCDirector sharedDirector] runningScene] addChild:[LootsieRewardsScreen instance] z:66];
+            }];
         } else {
             NSLog(@"AppDelegate: Lootsie Achievement Reached Failed with error: %@", errorMessage);
         }
@@ -441,10 +456,18 @@ static Battlefield * instance = nil;
 }
 
 -(void) loseGame {
-    
+    __unsafe_unretained __typeof(self) weakSelf = self;
     ServiceCallback achievementReachedCallback = ^(BOOL success, id result, NSString* errorMessage, NSInteger statusCode) {
         if (success) {
             NSLog(@"AppDelegate: Lootsie Achievement Reached!");
+            [[LootsieAchievementBannerManager sharedManager] showBannerWithAchievementId:@"loseGame" forInterval:5.0 action:^{
+                [weakSelf pause];
+                [LootsieRewardsScreen instance].gameMode = YES;
+                [LootsieRewardsScreen instance].closeBlock = ^{
+                    [weakSelf resume];
+                };
+                [[[CCDirector sharedDirector] runningScene] addChild:[LootsieRewardsScreen instance] z:66];
+            }];
         } else {
             NSLog(@"AppDelegate: Lootsie Achievement Reached Failed with error: %@", errorMessage);
         }
@@ -784,6 +807,13 @@ static Battlefield * instance = nil;
 	return location;
 }
 
+- (void)pause {
+    paused = YES;
+}
+
+- (void)resume {
+    paused = NO;
+}
 
 #pragma mark memory functions
 

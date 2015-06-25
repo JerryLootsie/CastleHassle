@@ -139,7 +139,8 @@ static MainMenu * instance = nil;
 - (void)showRewards: (id)sender {
     MainMenu* main = [MainMenu instance];
     [main removeChild:self cleanup:YES];
-    [main addChild:[LootsieRewardsScreen node]];
+    [LootsieRewardsScreen instance].gameMode = NO;
+    [main addChild:[LootsieRewardsScreen instance]];
 }
 
 - (void)showAchievements: (id)sender {

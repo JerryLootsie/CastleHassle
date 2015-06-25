@@ -14,6 +14,7 @@
 #import "MainMenu.h"
 #import "Lootsie.h"
 #import "LootsieAchievementBanner.h"
+#import "LootsieRewardsScreen.h"
 #import "LootsieAchievementBannerManager.h"
 
 @interface AppDelegate () <LootsieDelegate>
@@ -152,7 +153,8 @@
 		if (success) {
 			NSLog(@"AppDelegate: Lootsie Achievement Reached!");
             [[LootsieAchievementBannerManager sharedManager] showBannerWithAchievementId:@"applaunch" forInterval:5.0 action:^{
-                [(MainMenuLayer *)[[MainMenu instance] getChildByTag:MAIN_MENU_LAYER] showRewards:nil];
+                [LootsieRewardsScreen instance].gameMode = YES;
+                [[[CCDirector sharedDirector] runningScene] addChild:[LootsieRewardsScreen instance] z:66];
             }];
 		} else {
 			NSLog(@"AppDelegate: Lootsie Achievement Reached Failed with error: %@", errorMessage);

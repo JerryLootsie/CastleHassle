@@ -10,6 +10,9 @@
 
 @interface LootsieRewardsScreen : BaseMenu
 
+@property (nonatomic) BOOL gameMode;
+@property (strong, nonatomic) void (^closeBlock)(void);
+
 + (LootsieRewardsScreen *)instance;
 
 @end

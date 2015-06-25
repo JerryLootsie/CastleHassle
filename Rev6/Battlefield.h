@@ -17,6 +17,7 @@
 	BOOL didMoveInFollow;
 	BOOL sentLoseWarning;
 	BOOL sentFinalLoseWarning;
+    BOOL paused;
 	float cameraXBeforeShot;
 	float gameTime;
     
@@ -52,7 +53,8 @@
 -(void) loseGame;
 -(void) winGame;
 
-
+-(void) pause;
+-(void) resume;
 -(void) save;
 -(void) loadForPlayer:(PlayerArea*)player file:(NSString*)filename;
 -(void) setLastShot:(Projectile*)proj;

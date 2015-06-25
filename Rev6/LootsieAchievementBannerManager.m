@@ -11,7 +11,7 @@
 #import "Lootsie.h"
 #import "cocos2d.h"
 
-@interface LootsieAchievementBannerManager ()
+@interface LootsieAchievementBannerManager () <UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) void(^bannerAction)(void);
 @property (strong, nonatomic) LootsieAchievementBanner *currentBanner;
@@ -37,6 +37,7 @@
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapBanner:)];
     tapGesture.numberOfTapsRequired = 1;
+    tapGesture.delegate = self;
     [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:tapGesture];
     
     CCScene *runningScene = [[CCDirector sharedDirector] runningScene];
@@ -68,12 +69,6 @@
 }
 
 - (void)onTapBanner:(UITapGestureRecognizer *)gesture {
-    
-    CGPoint touchPoint = [gesture locationInView:gesture.view];
-    if (touchPoint.y > 44.f) {
-        return;
-    }
-    
     if (self.currentBanner) {
         [self.currentBanner stopAllActions];
         
@@ -98,6 +93,14 @@
     // execute this anyways
     [[[CCDirector sharedDirector] openGLView] removeGestureRecognizer:gesture];
     if (self.bannerAction) self.bannerAction();
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    CGPoint touchPoint = [gestureRecognizer locationInView:gestureRecognizer.view];
+    if (touchPoint.y <= 44.f) {
+        return YES;
+    }
+    return NO;
 }
 
 @end
