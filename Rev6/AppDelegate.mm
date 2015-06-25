@@ -13,6 +13,8 @@
 #import "RootViewController.h"
 #import "MainMenu.h"
 #import "Lootsie.h"
+#import "LootsieAchievementBanner.h"
+#import "LootsieAchievementBannerManager.h"
 
 @interface AppDelegate () <LootsieDelegate>
 
@@ -149,12 +151,17 @@
 	ServiceCallback achievementReachedCallback = ^(BOOL success, id result, NSString* errorMessage, NSInteger statusCode) {
 		if (success) {
 			NSLog(@"AppDelegate: Lootsie Achievement Reached!");
+            [[LootsieAchievementBannerManager sharedManager] showBannerWithAchievementId:@"applaunch" forInterval:5.0 action:^{
+                [(MainMenuLayer *)[[MainMenu instance] getChildByTag:MAIN_MENU_LAYER] showRewards:nil];
+            }];
 		} else {
 			NSLog(@"AppDelegate: Lootsie Achievement Reached Failed with error: %@", errorMessage);
 		}
 	};
 
 	[[Lootsie sharedInstance] achievementReachedWithIdLocationCallback:@"applaunch" location:@"default" callback:achievementReachedCallback];
+    
+    [[Lootsie sharedInstance] setNotificationConfiguration:notify_to_not_appear];
 }
 
 

@@ -79,7 +79,6 @@ static MainMenu * instance = nil;
         [navBack setPosition:ccp(240, 40)];
 		[self addChild:navBack z:0];
 		
-		
 		[CCMenuItemFont setFontSize:16];
 		[CCMenuItemFont setFontName:@"arial"];
 		

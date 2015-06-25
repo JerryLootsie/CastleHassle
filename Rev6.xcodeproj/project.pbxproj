@@ -491,8 +491,10 @@
 		9657A80F1B349ECF0063A48D /* LootsieAchievementsScreen.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9657A80C1B349ECF0063A48D /* LootsieAchievementsScreen.mm */; };
 		9657A8101B349ECF0063A48D /* LootsieRewardsScreen.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9657A80E1B349ECF0063A48D /* LootsieRewardsScreen.mm */; };
 		96EC19861B3A128B001F47A5 /* rewards_foreground.png in Resources */ = {isa = PBXBuildFile; fileRef = 96EC19851B3A128B001F47A5 /* rewards_foreground.png */; };
-		96EC198F1B3A18B0001F47A5 /* LootsieRewardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EC198E1B3A18B0001F47A5 /* LootsieRewardItem.m */; };
+		96EC198F1B3A18B0001F47A5 /* LootsieRewardItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96EC198E1B3A18B0001F47A5 /* LootsieRewardItem.mm */; };
 		96EC19931B3A522C001F47A5 /* rewards_cost_cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 96EC19921B3A522C001F47A5 /* rewards_cost_cloud.png */; };
+		96EC199A1B3B7C24001F47A5 /* LootsieAchievementBanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96EC19991B3B7C24001F47A5 /* LootsieAchievementBanner.mm */; };
+		96EC199D1B3B9460001F47A5 /* LootsieAchievementBannerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EC199C1B3B9460001F47A5 /* LootsieAchievementBannerManager.m */; };
 		DC47FE321B17D2020085E9EA /* libLootsie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC47FE2D1B17D12D0085E9EA /* libLootsie.a */; };
 		DC47FE341B17D2020085E9EA /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC47FE331B17D2020085E9EA /* libRestKit.a */; };
 		DC47FE351B17D20E0085E9EA /* LootsieSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DC47FE311B17D12D0085E9EA /* LootsieSDKResources.bundle */; };
@@ -1240,8 +1242,12 @@
 		9657A80E1B349ECF0063A48D /* LootsieRewardsScreen.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LootsieRewardsScreen.mm; sourceTree = "<group>"; };
 		96EC19851B3A128B001F47A5 /* rewards_foreground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rewards_foreground.png; sourceTree = "<group>"; };
 		96EC198D1B3A18B0001F47A5 /* LootsieRewardItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LootsieRewardItem.h; sourceTree = "<group>"; };
-		96EC198E1B3A18B0001F47A5 /* LootsieRewardItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LootsieRewardItem.m; sourceTree = "<group>"; };
+		96EC198E1B3A18B0001F47A5 /* LootsieRewardItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LootsieRewardItem.mm; sourceTree = "<group>"; };
 		96EC19921B3A522C001F47A5 /* rewards_cost_cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rewards_cost_cloud.png; sourceTree = "<group>"; };
+		96EC19981B3B7C24001F47A5 /* LootsieAchievementBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LootsieAchievementBanner.h; sourceTree = "<group>"; };
+		96EC19991B3B7C24001F47A5 /* LootsieAchievementBanner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LootsieAchievementBanner.mm; sourceTree = "<group>"; };
+		96EC199B1B3B9460001F47A5 /* LootsieAchievementBannerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LootsieAchievementBannerManager.h; sourceTree = "<group>"; };
+		96EC199C1B3B9460001F47A5 /* LootsieAchievementBannerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LootsieAchievementBannerManager.m; sourceTree = "<group>"; };
 		DC47FE251B17D12D0085E9EA /* Lootsie.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lootsie.xcodeproj; path = "ios-sdk4/Lootsie/Lootsie.xcodeproj"; sourceTree = "<group>"; };
 		DC47FE331B17D2020085E9EA /* libRestKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRestKit.a; path = "../../../Library/Developer/Xcode/DerivedData/Rev6-ekffcmnzjfucbybowpvrwqgaplxk/Build/Products/Debug-iphoneos/libRestKit.a"; sourceTree = "<group>"; };
 		DC47FE361B17D4DD0085E9EA /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -2462,11 +2468,15 @@
 			isa = PBXGroup;
 			children = (
 				9657A80B1B349ECF0063A48D /* LootsieRewardsScreen.h */,
-				9657A80C1B349ECF0063A48D /* LootsieAchievementsScreen.mm */,
-				9657A80D1B349ECF0063A48D /* LootsieAchievementsScreen.h */,
 				9657A80E1B349ECF0063A48D /* LootsieRewardsScreen.mm */,
+				9657A80D1B349ECF0063A48D /* LootsieAchievementsScreen.h */,
+				9657A80C1B349ECF0063A48D /* LootsieAchievementsScreen.mm */,
 				96EC198D1B3A18B0001F47A5 /* LootsieRewardItem.h */,
-				96EC198E1B3A18B0001F47A5 /* LootsieRewardItem.m */,
+				96EC198E1B3A18B0001F47A5 /* LootsieRewardItem.mm */,
+				96EC19981B3B7C24001F47A5 /* LootsieAchievementBanner.h */,
+				96EC19991B3B7C24001F47A5 /* LootsieAchievementBanner.mm */,
+				96EC199B1B3B9460001F47A5 /* LootsieAchievementBannerManager.h */,
+				96EC199C1B3B9460001F47A5 /* LootsieAchievementBannerManager.m */,
 			);
 			name = Lootsie;
 			sourceTree = "<group>";
@@ -2861,7 +2871,7 @@
 				02F5979314BDCB3F00C9349A /* CCActionGrid3D.m in Sources */,
 				02F5979614BDCB3F00C9349A /* CCActionInstant.m in Sources */,
 				02F5979914BDCB3F00C9349A /* CCActionInterval.m in Sources */,
-				96EC198F1B3A18B0001F47A5 /* LootsieRewardItem.m in Sources */,
+				96EC198F1B3A18B0001F47A5 /* LootsieRewardItem.mm in Sources */,
 				02F5979C14BDCB3F00C9349A /* CCActionManager.m in Sources */,
 				02F5979F14BDCB3F00C9349A /* CCActionPageTurn3D.m in Sources */,
 				02F597A214BDCB3F00C9349A /* CCActionProgressTimer.m in Sources */,
@@ -2969,6 +2979,7 @@
 				02F598F214BDCB4000C9349A /* b2Island.cpp in Sources */,
 				02F598F614BDCB4000C9349A /* b2World.cpp in Sources */,
 				02F598F914BDCB4000C9349A /* b2WorldCallbacks.cpp in Sources */,
+				96EC199D1B3B9460001F47A5 /* LootsieAchievementBannerManager.m in Sources */,
 				02F598FD14BDCB4100C9349A /* b2CircleContact.cpp in Sources */,
 				02F5990014BDCB4100C9349A /* b2Contact.cpp in Sources */,
 				02F5990314BDCB4100C9349A /* b2ContactSolver.cpp in Sources */,
@@ -2993,6 +3004,7 @@
 				02F59BEE14BDD0D100C9349A /* Territory.mm in Sources */,
 				02F59BEF14BDD0D100C9349A /* BackButtonLayer.mm in Sources */,
 				02F59BF114BDD0D100C9349A /* CHToggle.mm in Sources */,
+				96EC199A1B3B7C24001F47A5 /* LootsieAchievementBanner.mm in Sources */,
 				02F59BF214BDD0D100C9349A /* CHToggleItem.mm in Sources */,
 				02F59BF314BDD0D100C9349A /* BaseMenu.mm in Sources */,
 				02F59BF414BDD0D100C9349A /* CHTableButton.mm in Sources */,

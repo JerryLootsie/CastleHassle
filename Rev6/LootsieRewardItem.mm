@@ -67,11 +67,15 @@ static const CGFloat _headerHeight = 30.f;
     self.titleLabel.position = ccp(8, self.contentSize.height - _headerHeight * 0.5f);
     [self addChild:self.titleLabel z:1];
     
+    CCSprite *cloud = [CCSprite spriteWithFile:@"rewards_cost_cloud.png"];
+    cloud.position = ccp(self.contentSize.width - 30.f, self.contentSize.height - _headerHeight * 0.4f);
+    [self addChild:cloud z:2];
+    
     self.pointsLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%lu CP", (long)self.reward.lp] fontName:@"Arial-BoldMT" fontSize:14.f];
     [self.pointsLabel setColor:ccc3(15, 147, 222)];
     self.pointsLabel.anchorPoint = ccp(1, .5);
     self.pointsLabel.position = ccp(self.contentSize.width - 8.f, self.contentSize.height - _headerHeight * 0.5f);
-    [self addChild:self.pointsLabel z:2];
+    [self addChild:self.pointsLabel z:3];
     
     [self loadRewardImage:self.reward.image_urls.M];
 }
@@ -87,7 +91,7 @@ static const CGFloat _headerHeight = 30.f;
         [self.imageView setTexture:texture];
         [self.imageView setTextureRect:CGRectMake(0, 0, texture.contentSize.width, texture.contentSize.height)];
     }
-    CGSize imageContentSize = CGSizeMake(self.contentSize.width, self.contentSize.height - _headerHeight * 0.5f);
+    CGSize imageContentSize = CGSizeMake(self.contentSize.width, self.contentSize.height - _headerHeight);
     self.imageView.scale = MIN(imageContentSize.width / self.imageView.contentSize.width, imageContentSize.height / self.imageView.contentSize.height);
 }
 

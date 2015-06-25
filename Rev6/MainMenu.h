@@ -13,8 +13,6 @@
 #define MAIN_MENU_LAYER 101
 
 @interface MainMenu : CCScene {
-
-	
 }
 
 @property(nonatomic,retain) CCSprite* bg;
@@ -25,13 +23,14 @@
 @end
 
 
-@interface MainMenuLayer : BaseMenu { 
+@interface MainMenuLayer : BaseMenu {
 		CCSprite* bg;
 }
 
 -(void)singlePlayer: (id)sender;
 -(void)settings: (id)sender;
--(void)howToPlay: (id)sender;	
+-(void)howToPlay: (id)sender;
 -(void)campaign: (id)sender;
+-(void)showRewards: (id)sender;
 
 @end

@@ -22,6 +22,7 @@
 
 #import "MapScreen.h"
 #import "Lootsie.h"
+#import "LootsieAchievementBannerManager.h"
 
 //Pixel to metres ratio. Box2D uses metres as the unit for measurement.
 //This ratio defines how many pixels correspond to 1 Box2D "metre"
@@ -363,6 +364,9 @@ static Battlefield * instance = nil;
                 ServiceCallback achievementReachedCallback = ^(BOOL success, id result, NSString* errorMessage, NSInteger statusCode) {
                     if (success) {
                         NSLog(@"AppDelegate: Lootsie Achievement Reached!");
+                        [[LootsieAchievementBannerManager sharedManager] showBannerWithAchievementId:@"castlehit" forInterval:5.0 action:^{
+                            [(MainMenuLayer *)[[MainMenu instance] getChildByTag:MAIN_MENU_LAYER] showRewards:nil];
+                        }];
                     } else {
                         NSLog(@"AppDelegate: Lootsie Achievement Reached Failed with error: %@", errorMessage);
                     }
