@@ -3085,7 +3085,7 @@
 					"COCOS2D_DEBUG=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -3100,7 +3100,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -3134,7 +3134,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "\"Rev6/libs\" $(BUILT_PRODUCTS_DIR)/** \"$(BUILT_PRODUCTS_DIR)/../../Headers\"/**";
+				USER_HEADER_SEARCH_PATHS = "\"Rev6/libs\" \"$(BUILT_PRODUCTS_DIR)/include/Lootsie\"/** \"$(BUILT_PRODUCTS_DIR)/../../Headers\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3163,7 +3163,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "\"Rev6/libs\" $(BUILT_PRODUCTS_DIR)/** \"$(BUILT_PRODUCTS_DIR)/../../Headers\"/**";
+				USER_HEADER_SEARCH_PATHS = "\"Rev6/libs\" \"$(BUILT_PRODUCTS_DIR)/include/Lootsie\"/** \"$(BUILT_PRODUCTS_DIR)/../../Headers\"/**";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
