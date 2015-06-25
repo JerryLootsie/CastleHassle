@@ -21,6 +21,8 @@ static LootsieRewardsScreen *instance = nil;
 @property (strong, nonatomic) UISwipeGestureRecognizer *leftSwipe;
 @property (strong, nonatomic) UISwipeGestureRecognizer *rightSwipe;
 
+@property (strong, nonatomic) CCLabelTTF *pointsLabel;
+
 @property (strong, nonatomic) NSArray *rewards;
 @property (nonatomic) NSInteger currentIndex;
 @property (nonatomic) BOOL animating;
@@ -53,6 +55,9 @@ static LootsieRewardsScreen *instance = nil;
         CCSprite *wall = [CCSprite spriteWithFile:@"background.jpg"];
         [wall setPosition:ccp(240,160)];
         [self addChild:wall z:0];
+        
+        // points
+        [self updatePoints];
         
         // title
         CCLabelTTF* title = [CCLabelTTF labelWithString:@"Marketplace" fontName:@"Arial-BoldMT" fontSize:24];
@@ -114,6 +119,17 @@ static LootsieRewardsScreen *instance = nil;
     
     [[[CCDirector sharedDirector] openGLView] removeGestureRecognizer:self.leftSwipe];
     [[[CCDirector sharedDirector] openGLView] removeGestureRecognizer:self.rightSwipe];
+}
+
+- (void)updatePoints {
+    [self.pointsLabel removeFromParentAndCleanup:YES];
+    self.pointsLabel = nil;
+    
+    self.pointsLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%ld CP", (long)[[Lootsie sharedInstance] getUserAccount].total_lp] fontName:@"Arial-BoldMT" fontSize:20];
+    [self.pointsLabel setColor:ccc3(255, 255, 255)];
+    self.pointsLabel.anchorPoint = ccp(1, 1);
+    self.pointsLabel.position = ccp(470,310);
+    [self addChild:self.pointsLabel z:1];
 }
 
 - (void)populateCurrentReward {
@@ -227,12 +243,14 @@ static LootsieRewardsScreen *instance = nil;
             }
             
             // redeem reward
+            __unsafe_unretained __typeof(self) weakSelf = self;
             ServiceCallback redeemRewardCallback = ^(BOOL success, id result, NSString* errorMessage, NSInteger statusCode) {
                 
                 NSString *userMessage, *title;
                 if (success) {
                     title = @"Reddeem";
                     userMessage = @"Redeemed Successfully!";
+                    [weakSelf updatePoints];
                 } else {
                     title = @"Error";
                     userMessage = @"Failed to Redeem!";

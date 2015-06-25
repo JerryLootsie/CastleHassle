@@ -79,7 +79,6 @@
 	[super dealloc];
 	
 	[items release];
-    [image release];
 }
 
 @end
