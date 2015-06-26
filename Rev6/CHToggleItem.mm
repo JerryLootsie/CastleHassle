@@ -31,7 +31,7 @@
 		[item setContentSize:sel.size];
 		
 		CCMenu* menu = [CCMenu menuWithItems:item, nil];
-		
+		menu.position = ccp(240, 160);
 		[parent addChild:menu];
 	}
 	

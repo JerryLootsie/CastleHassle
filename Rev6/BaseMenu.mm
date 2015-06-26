@@ -42,6 +42,7 @@
     [menuItem addChild:label];
 	
     CCMenu *menu = [CCMenu menuWithItems:menuItem, nil];
+    menu.position = ccp(240, 160);
 	[self addChild:menu z:6];
     
     return menuItem;
@@ -64,6 +65,7 @@
 	[self addChild:selectedButton z:2];
 	
 	CCMenu *menu = [CCMenu menuWithItems:menuItem, nil];
+    menu.position = ccp(240, 160);
 	[self addChild:menu z:6];
 	
 	return menuItem;
@@ -87,6 +89,7 @@
     [menuItem addChild:icon];
     
     CCMenu *menu = [CCMenu menuWithItems:menuItem, nil];
+    menu.position = ccp(240, 160);
     [self addChild:menu z:6];
     
     return menuItem;
