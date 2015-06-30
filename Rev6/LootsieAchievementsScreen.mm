@@ -112,6 +112,7 @@ static LootsieAchievementsScreen *instance = nil;
         row.position = ccp(12.f, 195.f - 56.f * i);
         [self.achievementsHolder addChild:row];
         i++;
+        if (i >= 4) break;
     }
 }
 
