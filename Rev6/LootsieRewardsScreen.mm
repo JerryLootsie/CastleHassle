@@ -225,13 +225,12 @@ static LootsieRewardsScreen *instance = nil;
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     LootsieReward *reward = [self.rewards objectAtIndex:self.currentIndex];
-    NSString *email = [[alertView textFieldAtIndex:0].text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     
     if ([title isEqualToString:@"Redeem"]) {
         // if text input present, go for redemption
         if (alertView.alertViewStyle == UIAlertViewStylePlainTextInput) {
-            
+            NSString *email = [[alertView textFieldAtIndex:0].text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             // validate e-mail
             if (![self validateEmail:email]) {
                 [[[[UIAlertView alloc] initWithTitle:@"Invalid E-mail"
