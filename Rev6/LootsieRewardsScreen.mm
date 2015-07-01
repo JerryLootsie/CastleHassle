@@ -247,7 +247,7 @@ static LootsieRewardsScreen *instance = nil;
                 
                 NSString *userMessage, *title;
                 if (success) {
-                    title = @"Reddeem";
+                    title = @"Redeem";
                     userMessage = @"Redeemed Successfully!";
                     [weakSelf updatePoints];
                 } else {
