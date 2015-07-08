@@ -41,6 +41,18 @@
  }
  */
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    CGRect frame = self.view.frame;
+    CGFloat min = MIN(CGRectGetWidth(frame), CGRectGetHeight(frame));
+    CGFloat max = MAX(CGRectGetWidth(frame), CGRectGetHeight(frame));
+    if (max / min != 1.5) {
+        CGFloat diff = max - min * 1.5;
+        frame.origin.x = diff * .5;
+        self.view.frame = frame;
+    }
+}
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
