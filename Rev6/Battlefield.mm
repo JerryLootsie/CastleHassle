@@ -183,6 +183,25 @@ static Battlefield * instance = nil;
 	[Battlefield resetInstance];
 }
 
+- (void)visit {
+    if (!self.visible) {
+        return;
+    }
+    
+    CGRect frame = [[UIScreen mainScreen] bounds];
+    CGFloat min = MIN(CGRectGetWidth(frame), CGRectGetHeight(frame));
+    CGFloat max = MAX(CGRectGetWidth(frame), CGRectGetHeight(frame));
+    if (max / min != 1.5) {
+        CGFloat diff = max - min * 1.5;
+        glEnable(GL_SCISSOR_TEST);
+        glScissor(0, 0, frame.size.width - diff, frame.size.height);
+        [super visit];
+        glDisable(GL_SCISSOR_TEST);
+    } else {
+        return [super visit];
+    }
+}
+
 
 #pragma mark hud functions
 

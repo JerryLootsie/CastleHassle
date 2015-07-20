@@ -49,7 +49,7 @@
     CGFloat max = MAX(CGRectGetWidth(frame), CGRectGetHeight(frame));
     if (max / min != 1.5) {
         CGFloat diff = max - min * 1.5;
-        frame.origin.x = diff * .5;
+        frame = CGRectOffset(frame, diff * .5, 0.0);
         self.view.frame = frame;
     }
 }
